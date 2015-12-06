@@ -1,5 +1,6 @@
 %p#notice= notice
 
+= image_tag @workshop.cover.url(:medium)
 %p
   %b Title:
   = @workshop.title
@@ -8,10 +9,8 @@
   = @workshop.content
 %p
   %b Admin:
-  = @workshop.admin
-%p
-  %b User:
-  = @workshop.user
+  = @workshop.admin.email
+
 
 = link_to 'Edit', edit_workshop_path(@workshop)
 \|

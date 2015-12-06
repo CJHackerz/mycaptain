@@ -14,7 +14,7 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
-    @post = Post.new
+    @post = current_admin.posts.build
   end
 
   # GET /posts/1/edit
@@ -24,7 +24,7 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    @post = Post.new(post_params)
+    @post = current_admin.posts.build(post_params)
 
     respond_to do |format|
       if @post.save
@@ -69,6 +69,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :content, :admin_id,:cover, :domain_id, embedurls_attributes: [:id, :url, :_destroy], content_images_attributes: [:id, :image, :_destroy])
+      params.require(:post).permit(:title, :content, :admin_id,:cover, :domain_id, stuffs_attributes: [ :id,:image, :_destroy], embedurls_attributes: [:id, :url, :_destroy])
     end
 end

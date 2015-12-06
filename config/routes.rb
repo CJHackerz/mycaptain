@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'statics/index'
+
+  get 'statics/about'
+
+  get 'statics/contact'
+
   resources :posts
   resources :workshops
   devise_for :admins

@@ -9,15 +9,15 @@
 		%h3 YouTube Videos
 		#youtube
 			= f.simple_fields_for :embedurls do |embedurl|
-				= render 'embedurl_fields', f: task
+				= render 'embedurl_fields', f: embedurl
 			.links
 				= link_to_add_association 'add youtube url', f, :embedurls
 		%h3 Content Images
 		#youtube
-			= f.simple_fields_for :content_images do |content_image|
-				= render 'content_image_fields', f: content_image
+			= f.simple_fields_for :stuffs do |stuff|
+				= render 'stuff_fields', f: stuff
 			.links
-				= link_to_add_association 'add content image', f, :content_images
+				= link_to_add_association 'add content image', f, :stuffs
 
 	.form-actions
 		= f.button :submit

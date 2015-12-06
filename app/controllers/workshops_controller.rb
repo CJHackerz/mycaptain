@@ -14,7 +14,7 @@ class WorkshopsController < ApplicationController
 
   # GET /workshops/new
   def new
-    @workshop = Workshop.new
+    @workshop = current_admin.workshops.build
   end
 
   # GET /workshops/1/edit
@@ -24,7 +24,7 @@ class WorkshopsController < ApplicationController
   # POST /workshops
   # POST /workshops.json
   def create
-    @workshop = Workshop.new(workshop_params)
+    @workshop = current_admin.workshops.build(workshop_params)
 
     respond_to do |format|
       if @workshop.save
@@ -69,6 +69,6 @@ class WorkshopsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def workshop_params
-      params.require(:workshop).permit(:title, :content, :admin_id)
+      params.require(:workshop).permit(:title, :content, :admin_id, :cover)
     end
 end

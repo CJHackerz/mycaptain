@@ -1,14 +1,21 @@
 %p#notice= notice
 
+=image_tag @post.cover.url(:medium)
 %p
-  %b Title:
-  = @post.title
+	%b Title:
+	= @post.title
 %p
-  %b Content:
-  = @post.content
+	%b Content:
+	= @post.content
 %p
-  %b Admin:
-  = @post.admin
+	%b Admin:
+	= @post.admin.email
+
+-@post.embedurls.each do |url|
+	=url.url
+
+-@post.stuffs.each do |stuff|
+	=image_tag stuff.image.url(:medium)
 
 = link_to 'Edit', edit_post_path(@post)
 \|

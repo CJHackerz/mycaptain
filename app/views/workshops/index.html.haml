@@ -6,7 +6,6 @@
       %th Title
       %th Content
       %th Admin
-      %th User
       %th
       %th
       %th
@@ -16,8 +15,7 @@
       %tr
         %td= workshop.title
         %td= workshop.content
-        %td= workshop.admin
-        %td= workshop.user
+        %td= workshop.admin.email
         %td= link_to 'Show', workshop
         %td= link_to 'Edit', edit_workshop_path(workshop)
         %td= link_to 'Destroy', workshop, :method => :delete, :data => { :confirm => 'Are you sure?' }
