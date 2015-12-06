@@ -4,4 +4,10 @@ class Post < ActiveRecord::Base
 
   has_many :embedurls
   accepts_nested_attributes_for :embedurls, reject_if: :all_blank, allow_destroy: true
+
+  has_attached_file :cover, styles: { medium: "800x300#", thumb: "300x300#" }, default_url: "missing_cover.png"
+  validates_attachment_content_type :cover, content_type: /\Aimage\/.*\Z/
+
+  has_many :content_images
+  accepts_nested_attributes_for :content_images, reject_if: :all_blank, allow_destroy: true
 end

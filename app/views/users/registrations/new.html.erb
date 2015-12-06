@@ -7,6 +7,7 @@
     <%= f.input :email, required: true, autofocus: true %>
     <%= f.input :name, required: true %>
     <%= f.association :workshop, required: true %>
+    <%= f.input :avatar %>
     <%= f.input :date_of_birth, required: true %>
     <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
     <%= f.input :password_confirmation, required: true %>

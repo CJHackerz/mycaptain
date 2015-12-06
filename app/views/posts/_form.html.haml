@@ -3,6 +3,7 @@
 
 	.form-inputs
 		= f.association :workshop
+		= f.input :cover
 		= f.input :title
 		= f.input :content
 		%h3 YouTube Videos
@@ -11,6 +12,12 @@
 				= render 'embedurl_fields', f: task
 			.links
 				= link_to_add_association 'add youtube url', f, :embedurls
+		%h3 Content Images
+		#youtube
+			= f.simple_fields_for :content_images do |content_image|
+				= render 'content_image_fields', f: content_image
+			.links
+				= link_to_add_association 'add content image', f, :content_images
 
 	.form-actions
 		= f.button :submit
