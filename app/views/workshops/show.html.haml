@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @workshop.title
+%p
+  %b Content:
+  = @workshop.content
+%p
+  %b Admin:
+  = @workshop.admin
+%p
+  %b User:
+  = @workshop.user
+
+= link_to 'Edit', edit_workshop_path(@workshop)
+\|
+= link_to 'Back', workshops_path

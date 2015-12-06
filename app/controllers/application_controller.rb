@@ -15,14 +15,28 @@ class ApplicationController < ActionController::Base
   end
 end
 
+##USER STROG PARAMETERS SANITIZER
 class User::ParameterSanitizer < Devise::ParameterSanitizer
   def sign_up
-    default_params.permit(:name, :date_of_birth, :email, :password, :password_confirmation)
+    default_params.permit(:name, :date_of_birth, :email, :password, :password_confirmation, :domain_id)
+  end
+
+  def account_update
+  end
+
+  def sign_in
   end
 end
 
+##ADMIN STROG PARAMETERS SANITIZER
 class Admin::ParameterSanitizer < Devise::ParameterSanitizer
   def sign_up
     default_params.permit(:name, :date_of_birth, :email, :password, :password_confirmation)
+  end
+
+  def account_update
+  end
+
+  def sign_in
   end
 end
