@@ -47,6 +47,8 @@ end
 
 gem 'devise'
 gem 'simple_form'
+gem 'paperclip'
 gem 'haml-rails'
 gem 'haml'
+gem 'cocoon'
 

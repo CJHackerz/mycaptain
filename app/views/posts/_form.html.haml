@@ -5,7 +5,12 @@
 		= f.association :workshop
 		= f.input :title
 		= f.input :content
-		= f.association :admin
+		%h3 YouTube Videos
+		#youtube
+			= f.simple_fields_for :embedurls do |embedurl|
+				= render 'embedurl_fields', f: task
+			.links
+				= link_to_add_association 'add youtube url', f, :embedurls
 
 	.form-actions
 		= f.button :submit
