@@ -17,6 +17,16 @@
 -@post.stuffs.each do |stuff|
 	=image_tag stuff.image.url(:medium)
 
+%h2= pluralize(@post.comments.count, "Comment")
+
+-@comments.each do |comment|
+	%p=comment.user.email if comment.admin_id==nil
+	%p=comment.admin.email if comment.user_id==nil
+	%p=comment.content
+
+= render 'comments/form'
+	
+
 = link_to 'Edit', edit_post_path(@post)
 \|
 = link_to 'Back', posts_path

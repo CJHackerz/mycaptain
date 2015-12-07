@@ -22,7 +22,7 @@ class User::ParameterSanitizer < Devise::ParameterSanitizer
   end
 
   def account_update
-    default_params.permit(:email, :password, :password_confirmation, :avatar)
+    default_params.permit(:email, :password, :password_confirmation, :avatar, :current_password)
   end
 
   def sign_in

@@ -10,4 +10,6 @@ class Post < ActiveRecord::Base
 
   has_many :stuffs
   accepts_nested_attributes_for :stuffs, reject_if: :all_blank, allow_destroy: true
+
+  has_many :comments
 end
