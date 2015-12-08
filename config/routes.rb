@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
 
 
+  root 'statics#index'
+
   resources :posts do
     resources :comments
   end

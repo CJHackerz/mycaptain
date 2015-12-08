@@ -10,13 +10,78 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
  */
 
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import url(https://fonts.googleapis.com/css?family=Varela+Round);
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 
- *{
- 	font-family: varela round,courier;
- 	font-size: 20px;
- }
+.navbar-toggle{
+	height: 0px;
+	border: none;
+	a{
+		color:black;
+	}
+}
+
+.navbar-custom{
+	box-shadow: 0px 0px 3px 1px #e4e4e4;
+	background-color: white;
+	border-bottom: 1px solid #e4e4e4;
+	height: 50px;
+
+	ul.nav.navbar-nav{
+		font-family: varela round;
+
+		li a{
+			text-decoration: none;
+			color: grey;
+		}
+	}
+	.navbar-brand{
+ 
+		font-family: varela round;
+		
+	}
+	.logotext{
+		font-weight: bold;
+		color: #00b32d;
+		padding-left: 45px;
+		font-size: 25px;
+	}
+	img{
+		margin-top: -5px;
+		float:left;
+		width: 40px;
+	}
+}
+
+#green a{
+	color: #00b32d;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+body{
+	background-color: #f8f8f8;
+}
+
+@media only screen and (max-width: 768px) {
+    .navbar-brand {
+        float: right;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+

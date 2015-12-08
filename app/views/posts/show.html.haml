@@ -1,32 +1,34 @@
 %p#notice= notice
 
-=image_tag @post.cover.url(:medium)
-%p
-	%b Title:
-	= @post.title
-%p
-	%b Content:
-	= @post.content
-%p
-	%b Admin:
-	= @post.admin.email
+.form.container
+	=image_tag @post.cover.url(:medium)
+	%p
+		%b Title:
+		= @post.title
+	%p
+		%b Content:
+		= @post.content
+	%p
+		%b Admin:
+		= @post.admin.email
 
--@post.embedurls.each do |url|
-	=url.url
+	-@post.embedurls.each do |aurl|
+		%iframe{:allowfullscreen => true, :frameborder => "0", :height => "315", :src => "https://www.youtube.com/embed/#{aurl.url.split("=").last}", :width => "420"}
+		%br
 
--@post.stuffs.each do |stuff|
-	=image_tag stuff.image.url(:medium)
+	-@post.stuffs.each do |stuff|
+		=image_tag stuff.image.url(:medium)
 
-%h2= pluralize(@post.comments.count, "Comment")
+	%h2= pluralize(@post.comments.count, "Comment")
 
--@comments.each do |comment|
-	%p=comment.user.email if comment.admin_id==nil
-	%p=comment.admin.email if comment.user_id==nil
-	%p=comment.content
+	-@comments.each do |comment|
+		%p=comment.user.email if comment.admin_id==nil
+		%p=comment.admin.email if comment.user_id==nil
+		%p=comment.content
 
-= render 'comments/form'
-	
+	= render 'comments/form'
+		
 
-= link_to 'Edit', edit_post_path(@post)
-\|
-= link_to 'Back', posts_path
+	= link_to 'Edit', edit_post_path(@post)
+	\|
+	= link_to 'Back', posts_path

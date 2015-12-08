@@ -1,0 +1,68 @@
+!!!
+%html{lang: "en"}
+  %head
+    
+    /========================================== Used for bootstrap ======================================================
+    %meta{:charset => "utf-8"}
+    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}
+    %link{:crossorigin => "anonymous", :href => "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css", :integrity => "sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7", :rel => "stylesheet"}
+    /====================================================================================================================
+    
+    %title Mycaptain
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+    %p.alert= notice
+    %p.alert= alert
+  
+
+
+  %body
+    %nav.navbar-custom.navbar.navbar-fixed-top.navbar-default{role: "navigation"}
+      .container
+        .navbar-header
+          .dropdown.navbar-toggle.pull-left
+            %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+              %span.glyphicon.glyphicon-align-justify
+            %ul.dropdown-menu
+              %li
+                %a{href: "#"} Action
+              %li
+                %a{href: "#"} Another action
+              %li
+                %a{href: "#"} Something else here
+              %li
+                %a{href: "#"} Separated link
+              %li
+                %a{href: "#"} One more separated link
+          .navbar-brand
+            =image_tag "logo.png"
+            .logotext 
+              mycaptain
+        .collapse.navbar-collapse
+          %ul.nav.navbar-nav.navbar-right
+            %li
+              %a{href: "#"}
+                %span
+                  %i.fa.fa-tasks
+                  Features
+            %li
+              %a{href: "#"}
+                %span
+                  %i.fa.fa-copyright
+                  The Climber&trade;
+            %li
+              %a{href: "#"}
+                %span
+                  %i.fa.fa-sign-in
+                  Sign In
+            %li#green
+              %a{href: "#"}
+                %span
+                  %i.fa.fa-user-plus
+                  Join
+            
+      / /.navbar-collapse
+    .container
+      = yield

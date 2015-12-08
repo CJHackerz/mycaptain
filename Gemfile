@@ -46,9 +46,11 @@ group :development do
 end
 
 gem 'devise'
-gem 'simple_form'
+gem 'simple_form', '3.2.0'
 gem 'paperclip'
 gem 'haml-rails'
 gem 'haml'
 gem 'cocoon'
+gem 'bootstrap-sass'
+gem 'font-awesome-sass'
 
