@@ -13,8 +13,7 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
-    %p.alert= notice
-    %p.alert= alert
+    
   
 
 
@@ -43,26 +42,31 @@
         .collapse.navbar-collapse
           %ul.nav.navbar-nav.navbar-right
             %li
-              %a{href: "#"}
+              %a{href: statics_about_path}
                 %span
                   %i.fa.fa-tasks
                   Features
             %li
-              %a{href: "#"}
+              %a{href: "http://www.theclimber.in"}
                 %span
                   %i.fa.fa-copyright
                   The Climber&trade;
             %li
-              %a{href: "#"}
+              %a{href: new_user_session_path}
                 %span
                   %i.fa.fa-sign-in
                   Sign In
             %li#green
-              %a{href: "#"}
+              %a{href: new_user_registration_path}
                 %span
                   %i.fa.fa-user-plus
                   Join
             
       / /.navbar-collapse
+  %br
+  %br
+  %br
+  %br
+  %br
     .container
       = yield

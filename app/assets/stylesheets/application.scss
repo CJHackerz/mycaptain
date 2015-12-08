@@ -17,12 +17,21 @@
 @import url(https://fonts.googleapis.com/css?family=Varela+Round);
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "materialize";
 
-
+*{
+	font-family: varela round;
+}
+.alert{
+	background-color: blue;
+}
 .navbar-toggle{
+	padding-bottom: 0px;
 	height: 0px;
 	border: none;
+	margin-top: -10px;
 	a{
+		margin-top: -10px;
 		color:black;
 	}
 }
@@ -47,7 +56,6 @@
 		
 	}
 	.logotext{
-		font-weight: bold;
 		color: #00b32d;
 		padding-left: 45px;
 		font-size: 25px;

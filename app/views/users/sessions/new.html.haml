@@ -1,0 +1,11 @@
+.row
+  .col-md-6.col-md-offset-3
+    %h2 Welcome Back
+    = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .form-inputs
+        = f.input :email, required: false,label: false, placeholder: "your email" 
+        = f.input :password, required: false,label: false, placeholder: "your password"
+      %br
+      .form-actions
+        = f.button :submit, "Log in",class: "btn waves-effect waves-effect-light green pull-right"
+    = render "users/shared/links"

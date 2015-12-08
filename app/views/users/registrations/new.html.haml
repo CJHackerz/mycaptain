@@ -1,0 +1,18 @@
+.row
+  .col-md-6.col-md-offset-3
+    %h5
+      %b Join Our Awesome Community
+    = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = f.error_notification
+      .form-inputs
+        = f.input :email, required: true, autofocus: true,label: false,placeholder: "your email id"
+        = f.input :name, required: true,label: false,placeholder: "your name"
+        = f.association :workshop, required: true,label: false,placeholder: "choose your workshop"
+        = f.input :avatar,label: false
+        = f.input :date_of_birth, required: true
+        = f.input :password, required: true,label: false,placeholder: "your new password (8 characters minimum)"
+        = f.input :password_confirmation, required: true,label: false,placeholder: "confirm your new password"
+      .form-actions
+        = f.button :submit, "Sign up",class: "btn waves-effect waves-light pull-right green"
+
+    
