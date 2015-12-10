@@ -18,6 +18,6 @@
 		%hr
 		-@post.embedurls.each do |aurl|
 			.thumbnail
-				%iframe{:allowfullscreen => true, :frameborder => "0", :height => "315", :src => "https://www.youtube.com/embed/#{aurl.url.split("=").last}", :width => "450"}
+				%iframe{:allowfullscreen => true, :frameborder => "0", :height => "315", :src => "https://www.youtube.com/embed/#{aurl.url.split("=").last}", :width => "350"}
 				%p.caption=aurl.tag
 			%br
