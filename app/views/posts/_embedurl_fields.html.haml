@@ -1,3 +1,4 @@
 .nested-fields
-  = f.input :url
-  = link_to_remove_association "remove url", f
+  = f.input :url, label: false,placeholder: "enter the url of the youtube video"
+  = f.input :tag, label: false,placeholder: "tell the viewers something about the video"
+  = link_to_remove_association "remove url", f, class: "btn pull-right"

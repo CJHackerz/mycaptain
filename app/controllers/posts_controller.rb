@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_admin!, except: [:index,:show]
+  before_action :authenticate_user!, only: [:index, :show]
 
   # GET /posts
   # GET /posts.json
@@ -71,6 +72,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :content, :admin_id,:cover, :domain_id, stuffs_attributes: [ :id,:image, :_destroy], embedurls_attributes: [:id, :url, :_destroy])
+      params.require(:post).permit(:title, :content, :admin_id,:cover, :domain_id, stuffs_attributes: [ :id,:image,:tag, :_destroy], embedurls_attributes: [:id, :url,:tag, :_destroy])
     end
 end

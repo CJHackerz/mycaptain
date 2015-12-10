@@ -1,34 +1,23 @@
-%p#notice= notice
-
-.form.container
-	=image_tag @post.cover.url(:medium)
-	%p
-		%b Title:
-		= @post.title
-	%p
-		%b Content:
-		= @post.content
-	%p
-		%b Admin:
-		= @post.admin.email
-
-	-@post.embedurls.each do |aurl|
-		%iframe{:allowfullscreen => true, :frameborder => "0", :height => "315", :src => "https://www.youtube.com/embed/#{aurl.url.split("=").last}", :width => "420"}
-		%br
-
-	-@post.stuffs.each do |stuff|
-		=image_tag stuff.image.url(:medium)
-
-	%h2= pluralize(@post.comments.count, "Comment")
-
-	-@comments.each do |comment|
-		%p=comment.user.email if comment.admin_id==nil
-		%p=comment.admin.email if comment.user_id==nil
-		%p=comment.content
-
-	= render 'comments/form'
-		
-
-	= link_to 'Edit', edit_post_path(@post)
-	\|
-	= link_to 'Back', posts_path
+%br
+%br
+%br
+%br
+.row
+	.col-md-8.col-md-offset-2.form
+		=image_tag @post.cover.url(:medium),class: "cover thumbnail img-responsive"
+		%h1= @post.title
+		%hr
+		%p=simple_format(@post.content)
+		%h3.caption Images
+		%hr
+		-@post.stuffs.each do |stuff|
+			.thumbnail
+				=image_tag stuff.image.url(:medium),class: "post img-responsive"
+				%p.caption=stuff.tag
+		%h3.caption Videos
+		%hr
+		-@post.embedurls.each do |aurl|
+			.thumbnail
+				%iframe{:allowfullscreen => true, :frameborder => "0", :height => "315", :src => "https://www.youtube.com/embed/#{aurl.url.split("=").last}", :width => "450"}
+				%p.caption=aurl.tag
+			%br

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151207190547) do
+ActiveRecord::Schema.define(version: 20151209142814) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "name"
@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(version: 20151207190547) do
     t.integer  "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text     "tag"
   end
 
   add_index "embedurls", ["post_id"], name: "index_embedurls_on_post_id"
@@ -94,6 +95,7 @@ ActiveRecord::Schema.define(version: 20151207190547) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.text     "tag"
   end
 
   add_index "stuffs", ["post_id"], name: "index_stuffs_on_post_id"

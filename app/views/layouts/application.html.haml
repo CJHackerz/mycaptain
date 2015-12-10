@@ -20,22 +20,23 @@
 
 
   %body
-    .fixed-action-btn{:style => "bottom: 45px; right: 24px;"}
-      %a.btn-floating.btn-large.red
-        %i.fa.fa-pencil
-      %ul
-        %li
-          %a.btn-floating.red
-            %i.fa.fa-copyright
-        %li
-          %a.btn-floating.yellow.darken-1
-            %i.fa.fa-copyright
-        %li
-          %a.btn-floating.green
-            %i.fa.fa-copyright
-        %li
-          %a.btn-floating.blue
-            %i.fa.fa-copyright
+    -if user_signed_in?
+      .fixed-action-btn{:style => "bottom: 45px; right: 24px;"}
+        %a.btn-floating.btn-large.red
+          %i.fa.fa-pencil
+        %ul
+          %li
+            %a.btn-floating.red
+              %i.fa.fa-copyright
+          %li
+            %a.btn-floating.yellow.darken-1
+              %i.fa.fa-copyright
+          %li
+            %a.btn-floating.green
+              %i.fa.fa-copyright
+          %li
+            %a.btn-floating.blue
+              %i.fa.fa-copyright
     %nav.navbar-custom.navbar.navbar-fixed-top.navbar-default{role: "navigation"}
       .container
         .navbar-header
@@ -81,10 +82,6 @@
                   Join
             
       / /.navbar-collapse
-  %br
-  %br
-  %br
-  %br
-  %br
-    .container
-      = yield
+ 
+
+    = yield

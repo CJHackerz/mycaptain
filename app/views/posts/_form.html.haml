@@ -1,24 +1,37 @@
-.comtainer
+.comtainer.form
 	= simple_form_for(@post, html: { class: 'form-vertical' })do |f|
 		= f.error_notification
 
 		.form-inputs
-			= f.association :workshop, as: :radio_buttons
+			= f.association :workshop, class: "browser-default"
 			= f.input :cover
 			= f.input :title,label: false,placeholder: "Title"
 			= f.input :content,label: false,placeholder: "Content"
-			%h3 YouTube Videos
+			%br
+			%br
+			%hr.form-line
 			#youtube
 				= f.simple_fields_for :embedurls do |embedurl|
 					= render 'embedurl_fields', f: embedurl
 				.links
-					= link_to_add_association 'add youtube url', f, :embedurls
-			%h3 Content Images
+					%br
+					%br
+					= link_to_add_association 'add youtube url', f, :embedurls,class: "btn pull-right"
+			%br
+			%br
+			%hr.form-line
 			#youtube
 				= f.simple_fields_for :stuffs do |stuff|
 					= render 'stuff_fields', f: stuff
 				.links
-					= link_to_add_association 'add content image', f, :stuffs
+					%br
+					%br
+					= link_to_add_association 'add content image', f, :stuffs,class: "btn pull-right"
 
 		.form-actions
-			= f.button :submit, class: "btn btn-default"
+			%br
+			%br
+			%br
+			%br
+			%br
+			= f.button :submit, class: "btn btn-default pull-right"
