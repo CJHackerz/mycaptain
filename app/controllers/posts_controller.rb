@@ -10,6 +10,10 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    if !(admin_signed_in?)
+      authenticate_user!
+    end
+    
     @comments = Comment.where(post_id: @post)
   end
 

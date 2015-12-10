@@ -8,16 +8,38 @@
 		%h1= @post.title
 		%hr
 		%p=simple_format(@post.content)
+		%hr
 		%h3.caption Images
 		%hr
 		-@post.stuffs.each do |stuff|
 			.thumbnail
 				=image_tag stuff.image.url(:medium),class: "post img-responsive"
 				%p.caption=stuff.tag
+		%hr
 		%h3.caption Videos
 		%hr
 		-@post.embedurls.each do |aurl|
 			.thumbnail
-				%iframe{:allowfullscreen => true, :frameborder => "0", :height => "315", :src => "https://www.youtube.com/embed/#{aurl.url.split("=").last}", :width => "350"}
+				%iframe.center{:allowfullscreen => true, :frameborder => "0", :height => "315", :src => "https://www.youtube.com/embed/#{aurl.url.split("=").last}"}
 				%p.caption=aurl.tag
 			%br
+		%hr
+		#comments
+			%h3.caption#comments-count
+				=pluralize(@comments.count, "Comment")
+			%hr
+			-@post.comments.each do |comment|
+				-if comment.user_id ==nil
+					=image_tag comment.admin.avatar.url(:thumb)
+
+					%h5=comment.admin.email
+					%p=simple_format(comment.content)
+					%hr
+				-else
+					%p
+						=image_tag comment.user.avatar.url(:thumb), class: "img-rounded avatar"
+						=link_to comment.user.name
+						=comment.content
+					%p.pull-right= time_ago_in_words(comment.created_at)
+					%hr
+			=render 'comments/form'

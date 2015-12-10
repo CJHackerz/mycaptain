@@ -36,6 +36,7 @@ class Admin::ParameterSanitizer < Devise::ParameterSanitizer
   end
 
   def account_update
+    default_params.permit(:name, :date_of_birth, :email, :password, :password_confirmation, :avatar,:current_password)
   end
 
   def sign_in
