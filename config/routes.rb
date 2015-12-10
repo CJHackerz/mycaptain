@@ -17,7 +17,11 @@ Rails.application.routes.draw do
 
 
   resources :workshops
+  
   devise_for :admins
+  resources :admins
+  
   devise_for :users
+  resources :users
   
 end

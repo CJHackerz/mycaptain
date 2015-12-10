@@ -3,7 +3,10 @@
 %br
 %br
 .row
-	.col-md-8.col-md-offset-2.form
+	.form
+		
+
+
 		=image_tag @post.cover.url(:medium),class: "cover thumbnail img-responsive"
 		%h1= @post.title
 		%hr
@@ -24,21 +27,27 @@
 			%p.caption=aurl.tag
 			%br
 		%hr
+		
+
+
 		#comments
 			%h3.caption#comments-count
 				=pluralize(@comments.count, "Comment")
 			%hr
 			-@post.comments.each do |comment|
 				-if comment.user_id ==nil
-					=image_tag comment.admin.avatar.url(:thumb)
-
-					%h5=comment.admin.email
-					%p=simple_format(comment.content)
-					%hr
+					#admin_comment
+						%p
+							=image_tag comment.admin.avatar.url(:thumb), class: "img-rounded avatar"
+							=link_to comment.admin.name, admin_path(comment.admin.id)
+							=comment.content
+						%p.pull-right= time_ago_in_words(comment.created_at)
+						%hr
+					%br
 				-else
 					%p
 						=image_tag comment.user.avatar.url(:thumb), class: "img-rounded avatar"
-						=link_to comment.user.name
+						=link_to comment.user.name, user_path(comment.user.id)
 						=comment.content
 					%p.pull-right= time_ago_in_words(comment.created_at)
 					%hr
