@@ -19,9 +19,9 @@
 		%h3.caption Videos
 		%hr
 		-@post.embedurls.each do |aurl|
-			.thumbnail
-				%iframe.center{:allowfullscreen => true, :frameborder => "0", :height => "315", :src => "https://www.youtube.com/embed/#{aurl.url.split("=").last}"}
-				%p.caption=aurl.tag
+			.thumbnail.embed-responsive.embed-responsive-16by9
+				%iframe{:allowfullscreen => true, :frameborder => "0", :height => "315", :src => "https://www.youtube.com/embed/#{aurl.url.split("=").last}"}
+			%p.caption=aurl.tag
 			%br
 		%hr
 		#comments
