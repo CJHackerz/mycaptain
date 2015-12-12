@@ -72,7 +72,7 @@
 }
 
 body{
-	background-color: #f8f8f8;
+	background-color: #e4e4e4;
 }
 
 @media only screen and (max-width: 768px) {
@@ -117,6 +117,12 @@ body{
 #admin_comment{
 	background-color: #e4e4e4;
 	padding: 30px;
+}
+
+.aggregator{
+	position: fixed;
+	height: 86%;
+	width: 390px;
 }
 
 

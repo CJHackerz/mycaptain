@@ -1,0 +1,16 @@
+.col-md-4
+	.aggregator.form
+		-if user_signed_in?
+			%h5 
+				Hello,
+				=current_user.name
+			%hr
+			%p Here are some of the recent posts by your captains:
+			-@posts = Post.all.order("created_at DESC")
+			%ul
+				-@posts.each do |post|
+					%li
+					= link_to post.title, post
+					.pull-right
+						%em.light= time_ago_in_words(post.created_at)
+

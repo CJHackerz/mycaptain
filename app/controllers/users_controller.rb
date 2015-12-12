@@ -3,6 +3,10 @@ class UsersController < ApplicationController
 		find_user
 	end
 
+	def sign_in
+		redirect_to :back if admin_signed_in?
+	end
+
 	private
 
 	def find_user
