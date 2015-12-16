@@ -15,14 +15,18 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import url(https://fonts.googleapis.com/css?family=Varela+Round);
+@import url(https://fonts.googleapis.com/css?family=Lato:400,900,300italic);
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import "materialize";
+/*@import "materialize";*/
 
 *{
-	font-family: varela round;
+	font-family: Lato;
 }
 
+a{
+	text-decoration: none;
+}
 .navbar-toggle{
 	padding-bottom: 0px;
 	height: 0px;
@@ -124,6 +128,20 @@ body{
 	height: 86%;
 	width: 390px;
 }
+
+.dp{
+	width: 260px;
+}
+
+.pasty{
+	min-height: 370px;
+}
+
+.down{
+
+}
+
+
 
 
 

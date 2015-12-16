@@ -6,6 +6,7 @@ class WorkshopsController < ApplicationController
   # GET /workshops.json
   def index
     @workshops = Workshop.all
+    
   end
 
   # GET /workshops/1

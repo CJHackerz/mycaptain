@@ -1,1 +1,25 @@
-%h1=@admin.email
+.co
+	.row
+		.container
+			.col-md-4
+				=image_tag @admin.avatar.url(:thumb),class: 'img-rounded dp thumbnail'
+				%h4= @admin.name
+				%p
+					%em= @admin.email
+				%hr
+				%p
+					%i.fa.fa-clock-o
+					Joined on
+					=@admin.created_at.strftime("%B %d, %Y")
+				%hr
+			-if @admin.id == current_admin
+				.col-md-8
+					.alert.alert-info
+						.row
+							.col-md-8
+								%p
+									%strong 
+										Tip: 
+									Updating oyur profile with your avatar, phone number and location will help other users know you and contact you more easily.
+							.col-md-4
+								=link_to 'Update Profile',edit_admin_registration_path, class: "btn btn-primary waves-effect waves-effect-light btn-sm pull-right"

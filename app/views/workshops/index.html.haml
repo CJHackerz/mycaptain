@@ -1,25 +1,24 @@
-%h1 Listing workshops
-
-%table
-  %thead
-    %tr
-      %th Title
-      %th Content
-      %th Admin
-      %th
-      %th
-      %th
-
-  %tbody
-    - @workshops.each do |workshop|
-      %tr
-        %td= workshop.title
-        %td= workshop.content
-        %td= workshop.admin.email
-        %td= link_to 'Show', workshop
-        %td= link_to 'Edit', edit_workshop_path(workshop)
-        %td= link_to 'Destroy', workshop, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
 %br
-
-= link_to 'New Workshop', new_workshop_path
+%br
+.container
+  .row
+    .col-md-8
+      -@workshops.each do |workshop|
+        .col-md-12
+          .thumbnail.pasty
+            =image_tag(workshop.cover.url)
+            .caption
+              %h3=link_to workshop.title, workshop_path(workshop)
+              %hr
+              %p
+                %em mentors:
+                -@admins = Admin.where(workshop_id: workshop.id)
+                -@admins.each do |admin|
+                  =admin.name
+                  ,
+              %p=workshop.content.truncate_words(15)
+              .btn-group.down
+                =link_to 'Like',post_path(workshop),class: "btn btn-primary"
+                =link_to 'Mentor Profile',admin_path(workshop.admin),class: "btn btn-primary"
+    .col-md-4
+      =render 'aggregator/aside'

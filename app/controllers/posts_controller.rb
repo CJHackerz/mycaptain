@@ -4,7 +4,14 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    if user_signed_in?
+      @posts = Post.all
+      # @posts = Post.where(workshop_id: current_user.workshop_id)
+    elsif admin_signed_in?
+      @posts = Post.where(admin_id: current_admin.id)
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   # GET /posts/1
@@ -74,6 +81,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :content, :admin_id,:cover, :domain_id, stuffs_attributes: [ :id,:image,:tag, :_destroy], embedurls_attributes: [:id, :url,:tag, :_destroy])
+      params.require(:post).permit(:title, :content, :admin_id,:cover, :workshop_id, stuffs_attributes: [ :id,:image,:tag, :_destroy], embedurls_attributes: [:id, :url,:tag, :_destroy])
     end
 end

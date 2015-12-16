@@ -1,25 +1,22 @@
-%h1 Listing posts
-
-%table
-  %thead
-    %tr
-      %th Title
-      %th Content
-      %th Admin
-      %th
-      %th
-      %th
-
-  %tbody
-    - @posts.each do |post|
-      %tr
-        %td= post.title
-        %td= post.content
-        %td= post.admin.email
-        %td= link_to 'Show', post
-        %td= link_to 'Edit', edit_post_path(post)
-        %td= link_to 'Destroy', post, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
 %br
+%br
+.container
+  .row
+    .col-md-8
+      -@posts.each do |post|
+        .col-md-4
+          .thumbnail.pasty
+            =image_tag(post.cover.url)
+            .caption
+              %h3=link_to post.title, post_path(post)
+              %p
+                %em by
+                =post.admin.name
+              %p=post.content.truncate_words(15)
+              .btn-group.down
+                =link_to 'Like',post_path(post),class: "btn btn-primary"
+                =link_to 'Mentor Profile',admin_path(post.admin),class: "btn btn-primary"
+    .col-md-4
+      =render 'aggregator/aside'
+            
 
-= link_to 'New Post', new_post_path

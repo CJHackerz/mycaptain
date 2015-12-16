@@ -1,1 +1,25 @@
-%h1=@user.email
+.co
+	.row
+		.container
+			.col-md-4
+				=image_tag @user.avatar.url(:thumb),class: 'img-rounded dp thumbnail'
+				%h4= @user.name
+				%p
+					%em= @user.email
+				%hr
+				%p
+					%i.fa.fa-clock-o
+					Joined on
+					=@user.created_at.strftime("%B %d, %Y")
+				%hr
+			-if @user.id == current_user.id
+				.col-md-8
+					.alert.alert-info
+						.row
+							.col-md-8
+								%p
+									%strong 
+										Tip: 
+									Updating oyur profile with your avatar, phone number and location will help other users know you and contact you more easily.
+							.col-md-4
+								=link_to 'Update Profile',edit_user_registration_path, class: "btn btn-primary waves-effect waves-effect-light btn-sm pull-right"

@@ -113,5 +113,10 @@
                     Profile
             
       / /.navbar-collapse
-
-    = yield
+    -if user_signed_in? or admin_signed_in?
+      %br
+      %br
+      %br
+      = yield
+    -else
+      =yield
