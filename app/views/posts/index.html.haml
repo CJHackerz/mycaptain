@@ -1,5 +1,4 @@
-%br
-%br
+
 .container
   .row
     .col-md-8
@@ -8,14 +7,22 @@
           .thumbnail.pasty
             =image_tag(post.cover.url)
             .caption
-              %h3=link_to post.title, post_path(post)
+              %h3=link_to post.title, post_path(post),class: "arvo"
               %p
                 %em by
                 =post.admin.name
+              %hr
               %p=post.content.truncate_words(15)
               .btn-group.down
-                =link_to 'Like',post_path(post),class: "btn btn-primary"
-                =link_to 'Mentor Profile',admin_path(post.admin),class: "btn btn-primary"
+                =link_to post_path(post),class: "btn btn-primary" do
+                  %i.fa.fa-thumbs-up 11
+                =link_to admin_path(post.admin),class: "btn btn-default" do
+                  %i.fa.fa-user 
+                  Mentor
+                =link_to post,class: "btn btn-primary" do
+                  %i.fa.fa-comments 
+                  =post.comments.count
+                  
     .col-md-4
       =render 'aggregator/aside'
             

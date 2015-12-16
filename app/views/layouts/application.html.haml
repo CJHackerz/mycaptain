@@ -8,7 +8,7 @@
     %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}
     %link{:crossorigin => "anonymous", :href => "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css", :integrity => "sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7", :rel => "stylesheet"}
     %meta{:content => "grey", :name => "theme-color"}/
-    =favicon_link_tag(source='logo.png', options={})
+    =favicon_link_tag(source='Artboard 1.png', options={})
     /====================================================================================================================
     
     %title Mycaptain
@@ -40,9 +40,7 @@
               %li
                 %a{href: "#"} One more separated link
           .navbar-brand
-            =image_tag "logo.png"
-            .logotext 
-              mycaptain
+            =image_tag "logo1.png"
         - if !(user_signed_in?) && !(admin_signed_in?)
           .collapse.navbar-collapse
             %ul.nav.navbar-nav.navbar-right

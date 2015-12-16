@@ -1,22 +1,22 @@
-%br
-%br
+
 .container
   .row
     .col-md-8
       -@workshops.each do |workshop|
         .col-md-12
-          .thumbnail.pasty
-            =image_tag(workshop.cover.url)
+          .thumbnail.pasty2
+            =image_tag(workshop.cover.url(:medium))
             .caption
-              %h3=link_to workshop.title, workshop_path(workshop)
-              %hr
+              %h3=link_to workshop.title, workshop_path(workshop),class: "arvo"
+              
               %p
                 %em mentors:
                 -@admins = Admin.where(workshop_id: workshop.id)
                 -@admins.each do |admin|
                   =admin.name
                   ,
-              %p=workshop.content.truncate_words(15)
+              %hr
+              %p=workshop.content
               .btn-group.down
                 =link_to 'Like',post_path(workshop),class: "btn btn-primary"
                 =link_to 'Mentor Profile',admin_path(workshop.admin),class: "btn btn-primary"

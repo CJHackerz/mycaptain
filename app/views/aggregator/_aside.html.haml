@@ -7,10 +7,14 @@
 			%hr
 			%p Here are some of the recent posts by your captains:
 			-@posts = Post.all.order("created_at DESC")
-			%ul
-				-@posts.each do |post|
-					%li
-					= link_to post.title, post
-					.pull-right
-						%em.light= time_ago_in_words(post.created_at)
+			-@posts.each do |post|
+				=link_to post.title, post_path(post)
+				.pull-right=time_ago_in_words(post.created_at)
+				%br
+			%br
+			%h5
+				Internet on 
+				=current_user.workshop.title
+			%hr
+
 
