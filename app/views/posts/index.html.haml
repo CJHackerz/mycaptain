@@ -7,7 +7,7 @@
           .thumbnail.pasty
             =image_tag(post.cover.url)
             .caption
-              %h3=link_to post.title, post_path(post),class: "arvo"
+              %h3=link_to post.try(:title), post_path(post),class: "arvo"
               %p
                 %em by
                 =post.admin.name
