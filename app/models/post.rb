@@ -1,4 +1,7 @@
 class Post < ActiveRecord::Base
+
+	acts_as_votable
+
   belongs_to :admin
   belongs_to :workshop
 

@@ -5,9 +5,9 @@
 
 
 		=image_tag @post.cover.url(:medium),class: "cover thumbnail img-responsive"
-		%h1= @post.title
+		%h1.arvo= @post.title
 		%hr
-		%p=simple_format(@post.content)
+		%p.cont=simple_format(@post.content)
 		%hr
 		%h3.caption Images
 		%hr
@@ -24,6 +24,14 @@
 			%p.caption=aurl.tag
 			%br
 		%hr
+
+		.btn-group.pull-right
+			=link_to like_post_path(@post),method: :get,class: "btn btn-success" do
+				%i.fa.fa-plus
+				=pluralize(@post.get_upvotes.size, 'Upvote')
+			=link_to dislike_post_path(@post),method: :get,class: "btn btn-danger" do
+				%i.fa.fa-minus
+				=pluralize(@post.get_downvotes.size, 'Downvote')
 		
 
 
@@ -35,7 +43,7 @@
 				-if comment.user_id ==nil
 					#admin_comment
 						%p
-							=image_tag comment.admin.avatar.url(:thumb), class: "img-rounded avatar"
+							=image_tag comment.admin.avatar.url(:thumb), class: "img-circle avatar"
 							=link_to comment.admin.name, admin_path(comment.admin.id)
 							=comment.content
 						%p.pull-right= time_ago_in_words(comment.created_at)
@@ -43,7 +51,7 @@
 					%br
 				-else
 					%p
-						=image_tag comment.user.avatar.url(:thumb), class: "img-rounded avatar"
+						=image_tag comment.user.avatar.url(:thumb), class: "img-circle avatar"
 						=link_to comment.user.name, user_path(comment.user.id)
 						=comment.content
 					%p.pull-right= time_ago_in_words(comment.created_at)

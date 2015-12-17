@@ -14,8 +14,9 @@
               %hr
               %p=post.content.truncate_words(15)
               .btn-group.down
-                =link_to post_path(post),class: "btn btn-primary" do
-                  %i.fa.fa-thumbs-up 11
+                =link_to like_post_path(post),method: :get,class: "btn btn-success" do
+                  %i.fa.fa-thumbs-up
+                  = post.get_upvotes.size
                 =link_to admin_path(post.admin),class: "btn btn-default" do
                   %i.fa.fa-user 
                   Mentor

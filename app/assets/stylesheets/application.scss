@@ -88,7 +88,9 @@ body{
 }
 
 .form{
+	border: 1px solid #b9b9b9;
 	background-color: white;
+	
 	padding: 20px;
 	border-radius: 5px;
 	h1{
@@ -118,6 +120,7 @@ body{
 
 .avatar{
 	width: 50px;
+	border: 1px solid black;
 }
 
 #admin_comment{
@@ -138,7 +141,11 @@ body{
 
 .pasty{
 	img{
+		padding-left: none;
+		padding-right: none;
+		padding-top: 0px;
 		max-height: 130px;
+		min-height: 130px;
 	}
 	border: 1px solid #b9b9b9;
 	min-height: 400px;
@@ -157,6 +164,10 @@ body{
 		text-decoration: none;
 		color: black;
 	}
+}
+
+p.cont{
+	font-size: 20px;
 }
 
 
