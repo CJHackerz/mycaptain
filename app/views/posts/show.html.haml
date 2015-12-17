@@ -13,7 +13,7 @@
 		%hr
 		-@post.stuffs.each do |stuff|
 			.thumbnail
-				=image_tag stuff.image.url(:medium),class: "post img-responsive"
+				=image_tag stuff.image.url,class: "post_image img-responsive"
 				%p.caption=stuff.tag
 		%hr
 		%h3.caption Videos

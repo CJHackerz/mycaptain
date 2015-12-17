@@ -82,11 +82,11 @@
                   %span
                     %i.fa.fa-mortar-board
                     Captains
-              %li#green
+              %li
                 %a{href: user_path(current_user)}
                   %span
-                    %i.fa.fa-user
-                    Profile
+                    =image_tag current_user.avatar.url 
+                    &#32;Profile
         -elsif admin_signed_in? && !(user_signed_in?)
           .collapse.navbar-collapse
             %ul.nav.navbar-nav.navbar-right

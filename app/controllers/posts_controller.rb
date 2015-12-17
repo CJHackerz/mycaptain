@@ -74,12 +74,14 @@ class PostsController < ApplicationController
   end
 
   def upvote
-    if user_signed_in?
-      @post.upvote_by current_user
-      redirect_to :back
-    else
-      @post.upvote_by current_admin
-      redirect_to :back
+
+    respond_to do |format|
+      
+      format.html{redirect_to :back}
+      format.js{render layout: false}
+      
+      @post.upvote_by current_user if user_signed_in?
+      @post.upvote_by current_admin if admin_signed_in?
     end
   end
 
