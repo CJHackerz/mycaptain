@@ -77,7 +77,7 @@ class PostsController < ApplicationController
     if user_signed_in?
       @post.upvote_by current_user
       redirect_to :back
-    elsif admin_signed_in?
+    else
       @post.upvote_by current_admin
       redirect_to :back
     end
