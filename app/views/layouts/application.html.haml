@@ -20,102 +20,108 @@
 
 
   %body
-    %nav.navbar-custom.navbar.navbar-fixed-top.navbar-default{role: "navigation"}
-      .container
-        .navbar-header
-          .dropdown.navbar-toggle.pull-left
-            %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-              %br
-              %span.glyphicon.glyphicon-align-justify
-            %ul.dropdown-menu
-              %br
-              %li
-                %a{href: "#"} Action
-              %li
-                %a{href: "#"} Another action
-              %li
-                %a{href: "#"} Something else here
-              %li
-                %a{href: "#"} Separated link
-              %li
-                %a{href: "#"} One more separated link
-          .navbar-brand
-            =image_tag "logo1.png"
-        - if !(user_signed_in?) && !(admin_signed_in?)
-          .collapse.navbar-collapse
-            %ul.nav.navbar-nav.navbar-right
-              %li
-                %a{href: statics_about_path}
-                  %span
-                    %i.fa.fa-tasks
-                    Features
-              %li
-                %a{href: "http://www.theclimber.in"}
-                  %span
-                    %i.fa.fa-copyright
-                    The Climber&trade;
-              %li
-                %a{href: new_user_session_path}
-                  %span
-                    %i.fa.fa-sign-in
-                    Sign In
-              %li#green
-                %a{href: new_user_registration_path}
-                  %span
-                    %i.fa.fa-user-plus
-                    Join
-        -elsif user_signed_in? && !(admin_signed_in?)
-          .collapse.navbar-collapse
-            %ul.nav.navbar-nav.navbar-right
-              %li
-                %a{href: statics_about_path}
-                  %span
-                    %i.fa.fa-users
-                    Worshop Forum
-              %li
-                %a{href: "http://www.theclimber.in"}
-                  %span
-                    %i.fa.fa-pencil
-                    Contribute
-              %li
-                %a{href: new_user_session_path}
-                  %span
-                    %i.fa.fa-mortar-board
-                    Captains
-              %li
-                %a{href: user_path(current_user)}
-                  %span
-                    =image_tag current_user.avatar.url 
-                    &#32;Profile
-        -elsif admin_signed_in? && !(user_signed_in?)
-          .collapse.navbar-collapse
-            %ul.nav.navbar-nav.navbar-right
-              %li
-                %a{href: new_post_path}
-                  %span
-                    %i.fa.fa-pencil
-                    New Post
-              %li
-                %a{href: new_workshop_path}
-                  %span
-                    %i.fa.fa-university
-                    New Workshop
-              %li
-                %a{href: new_user_session_path}
-                  %span
-                    %i.fa.fa-users
-                    Mentees
-              %li#green
-                %a{href: admin_path(current_admin)}
-                  %span
-                    %i.fa.fa-user
-                    Profile
-            
-      / /.navbar-collapse
-    -if user_signed_in? or admin_signed_in?
-      %br
-      %br
-      %br
-      = yield
-    -else
-      =yield
+    #wrap
+      %nav.navbar.navbar-fixed-bottom.navbar-inverse{role: "footer"}
+        .continer
+          .container
+            .navbar-brand.center The Climber&trade;
+      %nav.navbar-custom.navbar.navbar-fixed-top.navbar-default{role: "navigation"}
+
+        .container
+          .navbar-header
+            .dropdown.navbar-toggle.pull-left
+              %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+                %br
+                %span.glyphicon.glyphicon-align-justify
+              %ul.dropdown-menu
+                %br
+                %li
+                  %a{href: "#"} Action
+                %li
+                  %a{href: "#"} Another action
+                %li
+                  %a{href: "#"} Something else here
+                %li
+                  %a{href: "#"} Separated link
+                %li
+                  %a{href: "#"} One more separated link
+            .navbar-brand
+              =image_tag "logo1.png"
+          - if !(user_signed_in?) && !(admin_signed_in?)
+            .collapse.navbar-collapse
+              %ul.nav.navbar-nav.navbar-right
+                %li
+                  %a{href: statics_about_path}
+                    %span
+                      %i.fa.fa-tasks
+                      Features
+                %li
+                  %a{href: "http://www.theclimber.in"}
+                    %span
+                      %i.fa.fa-copyright
+                      The Climber&trade;
+                %li
+                  %a{href: new_user_session_path}
+                    %span
+                      %i.fa.fa-sign-in
+                      Sign In
+                %li#green
+                  %a{href: new_user_registration_path}
+                    %span
+                      %i.fa.fa-user-plus
+                      Join
+          -elsif user_signed_in? && !(admin_signed_in?)
+            .collapse.navbar-collapse
+              %ul.nav.navbar-nav.navbar-right
+                %li
+                  %a{href: statics_about_path}
+                    %span
+                      %i.fa.fa-users
+                      Worshop Forum
+                %li
+                  %a{href: "http://www.theclimber.in"}
+                    %span
+                      %i.fa.fa-pencil
+                      Contribute
+                %li
+                  %a{href: new_user_session_path}
+                    %span
+                      %i.fa.fa-mortar-board
+                      Captains
+                %li
+                  %a{href: user_path(current_user)}
+                    %span
+                      =image_tag current_user.avatar.url , class: "img img-rounded"
+                      &#32;Profile
+          -elsif admin_signed_in? && !(user_signed_in?)
+            .collapse.navbar-collapse
+              %ul.nav.navbar-nav.navbar-right
+                %li
+                  %a{href: new_post_path}
+                    %span
+                      %i.fa.fa-pencil
+                      New Post
+                %li
+                  %a{href: new_workshop_path}
+                    %span
+                      %i.fa.fa-university
+                      New Workshop
+                %li
+                  %a{href: new_user_session_path}
+                    %span
+                      %i.fa.fa-users
+                      Mentees
+                %li
+                  %a{href: admin_path(current_admin)}
+                    %span
+                      =image_tag current_admin.avatar.url,class: "img img-rounded" 
+                      &#32;Profile
+              
+        / /.navbar-collapse
+      -if user_signed_in? or admin_signed_in?
+        %br
+        %br
+        %br
+        = yield
+      -else
+        =yield

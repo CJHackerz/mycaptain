@@ -1,0 +1,22 @@
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+.row
+  .col-sm-4.col-sm-offset-4.form
+    %h2.center Welcome, captain!
+    %hr
+    = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .form-inputs
+        = f.input :email, required: false, autofocus: true,label: false, placeholder: "Email"
+        = f.input :password, required: false,label: false, placeholder: "Password"
+        = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
+      .form-actions
+        = f.button :submit, "Log in", class: "btn btn-primary pull-right"
+    = render "admins/shared/links"

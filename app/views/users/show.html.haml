@@ -12,14 +12,15 @@
 					Joined on
 					=@user.created_at.strftime("%B %d, %Y")
 				%hr
-			-if @user.id == current_user.id
-				.col-md-8
-					.alert.alert-info
-						.row
-							.col-md-8
-								%p
-									%strong 
-										Tip: 
-									Updating oyur profile with your avatar, phone number and location will help other users know you and contact you more easily.
-							.col-md-4
-								=link_to 'Update Profile',edit_user_registration_path, class: "btn btn-primary waves-effect waves-effect-light btn-sm pull-right"
+			-if user_signed_in?
+				-if @user.id == current_user.id
+					.col-md-8
+						.alert.alert-info
+							.row
+								.col-md-8
+									%p
+										%strong 
+											Tip: 
+										Updating oyur profile with your avatar, phone number and location will help other users know you and contact you more easily.
+								.col-md-4
+									=link_to 'Update Profile',edit_user_registration_path, class: "btn btn-primary waves-effect waves-effect-light btn-sm pull-right"
