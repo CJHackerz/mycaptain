@@ -185,13 +185,20 @@ html,body{
   height: 100%;
 }
 
-#wrap {
-  min-height: 100%;
-  height: auto;
-  /* Negative indent footer by its height */
-  margin: 0 auto -60px;
-  /* Pad bottom by footer height */
-  padding: 0 0 60px;
+.wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -155px; /* the bottom margin is the negative value of the footer's height */
+}
+
+.footer, .push {
+    height: 50px; /* .push must be the same height as .footer */
+}
+
+.footer{
+	margin-bottom: 0px;
+	border-top:1px solid grey;
 }
 
 .center{

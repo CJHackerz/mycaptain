@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :contributions
   get 'comments/create'
 
   get 'statics/index'

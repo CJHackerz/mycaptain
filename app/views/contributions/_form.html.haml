@@ -1,7 +1,11 @@
-=simple_form_for @contribution do |f|
-	=f.association :workshop
-	=f.input :title
-	
-	=f.input :content
-	%br
-	=f.button :submit
+= simple_form_for(@contribution) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.association :user
+    = f.association :workshop
+    = f.input :title
+    = f.input :content
+
+  .form-actions
+    = f.button :submit

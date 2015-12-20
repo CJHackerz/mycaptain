@@ -20,11 +20,8 @@
 
 
   %body
-    #wrap
-      %nav.navbar.navbar-fixed-bottom.navbar-inverse{role: "footer"}
-        .continer
-          .container
-            .navbar-brand.center The Climber&trade;
+
+    #wrapper
       %nav.navbar-custom.navbar.navbar-fixed-top.navbar-default{role: "navigation"}
 
         .container
@@ -153,3 +150,7 @@
         = yield
       -else
         =yield
+      .push
+    .footer
+      %br
+      %p.center Yolo

@@ -1,5 +1,27 @@
-.row
-	.col-md-8.col-md-offset-2.form
-		-@contributions.each do |contribution|
-			=link_to contribution.title, contribution
-			%br
+%h1 Listing contributions
+
+%table
+  %thead
+    %tr
+      %th User
+      %th Workshop
+      %th Title
+      %th Content
+      %th
+      %th
+      %th
+
+  %tbody
+    - @contributions.each do |contribution|
+      %tr
+        %td= contribution.user
+        %td= contribution.workshop
+        %td= contribution.title
+        %td= contribution.content
+        %td= link_to 'Show', contribution
+        %td= link_to 'Edit', edit_contribution_path(contribution)
+        %td= link_to 'Destroy', contribution, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Contribution', new_contribution_path

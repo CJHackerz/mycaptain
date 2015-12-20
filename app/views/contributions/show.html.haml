@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b User:
+  = @contribution.user
+%p
+  %b Workshop:
+  = @contribution.workshop
+%p
+  %b Title:
+  = @contribution.title
+%p
+  %b Content:
+  = @contribution.content
+
+= link_to 'Edit', edit_contribution_path(@contribution)
+\|
+= link_to 'Back', contributions_path

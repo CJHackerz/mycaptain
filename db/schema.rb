@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151220150302) do
+ActiveRecord::Schema.define(version: 20151220160951) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "name"
@@ -64,15 +64,16 @@ ActiveRecord::Schema.define(version: 20151220150302) do
   add_index "content_images", ["post_id"], name: "index_content_images_on_post_id"
 
   create_table "contributions", force: :cascade do |t|
-    t.string   "title"
-    t.text     "content"
     t.integer  "user_id"
+    t.integer  "workshop_id"
+    t.string   "title"
+    t.string   "content"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.integer  "workshop_id"
   end
 
   add_index "contributions", ["user_id"], name: "index_contributions_on_user_id"
+  add_index "contributions", ["workshop_id"], name: "index_contributions_on_workshop_id"
 
   create_table "embedurls", force: :cascade do |t|
     t.string   "url"
