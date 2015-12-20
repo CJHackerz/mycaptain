@@ -10,5 +10,9 @@ class User < ActiveRecord::Base
 
   has_many :comments
   has_many :contributions
+
+  validates :name, presence: true
+  validates :date_of_birth, presence: true
+  validates :workshop, presence: true
   
 end

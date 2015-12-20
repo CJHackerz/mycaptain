@@ -7,6 +7,9 @@ class UsersController < ApplicationController
 		redirect_to :back if admin_signed_in?
 	end
 
+	def index
+	end
+
 	private
 
 	def find_user

@@ -15,4 +15,7 @@ class Post < ActiveRecord::Base
   accepts_nested_attributes_for :stuffs, reject_if: :all_blank, allow_destroy: true
 
   has_many :comments
+
+  validates :content, presence: true
+  validates :title, presence: true
 end

@@ -14,7 +14,7 @@ class ContributionsController < ApplicationController
 
   # GET /contributions/new
   def new
-    @contribution = Contribution.new
+    @contribution = current_user.contributions.build
   end
 
   # GET /contributions/1/edit
@@ -24,7 +24,7 @@ class ContributionsController < ApplicationController
   # POST /contributions
   # POST /contributions.json
   def create
-    @contribution = Contribution.new(contribution_params)
+    @contribution = current_user.contributions.build(contribution_params)
 
     respond_to do |format|
       if @contribution.save
@@ -69,6 +69,6 @@ class ContributionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def contribution_params
-      params.require(:contribution).permit(:user_id, :workshop_id, :title, :content)
+      params.require(:contribution).permit( :workshop_id, :title, :content)
     end
 end

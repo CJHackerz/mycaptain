@@ -7,4 +7,7 @@ class Workshop < ActiveRecord::Base
 
   has_attached_file :cover, styles: { medium: "800x300#", thumb: "300x300#" }, default_url: "missing_cover.png"
   validates_attachment_content_type :cover, content_type: /\Aimage\/.*\Z/
+
+  validates :content, presence: true
+  validates :title, presence: true
 end

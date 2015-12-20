@@ -3,8 +3,6 @@
 %table
   %thead
     %tr
-      %th User
-      %th Workshop
       %th Title
       %th Content
       %th
@@ -14,8 +12,6 @@
   %tbody
     - @contributions.each do |contribution|
       %tr
-        %td= contribution.user
-        %td= contribution.workshop
         %td= contribution.title
         %td= contribution.content
         %td= link_to 'Show', contribution

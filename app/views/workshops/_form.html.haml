@@ -2,10 +2,10 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :title
-    = f.input :content
+    = f.input :title,label: false,placeholder: "Workshop Name"
+    = f.input :content,label: false,placeholder: "More about the workshop.."
     = f.input :cover
 
 
   .form-actions
-    = f.button :submit
+    = f.button :submit, class: "btn btn-primary pull-right"
