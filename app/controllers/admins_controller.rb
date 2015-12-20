@@ -3,6 +3,10 @@ class AdminsController < ApplicationController
 		find_admin
 	end
 
+	def index
+		@admins = Admin.all
+	end
+
 	private
 
 	def find_admin

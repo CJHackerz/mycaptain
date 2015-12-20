@@ -36,15 +36,43 @@
               %ul.dropdown-menu
                 %br
                 %li
-                  %a{href: "#"} Action
-                %li
-                  %a{href: "#"} Another action
-                %li
-                  %a{href: "#"} Something else here
-                %li
-                  %a{href: "#"} Separated link
-                %li
-                  %a{href: "#"} One more separated link
+                  %a{href: "#"}
+                    %span.glyphicon.glyphicon-align-justify
+                %br
+
+                - if (user_signed_in?) && !(admin_signed_in?)
+                  %li
+                    %a{href: new_post_path}
+                      %span.fa.fa-users
+                      Workshop Forum
+                    %br
+                  %li
+                    %a{href: new_contribution_path}
+                      %span.fa.fa-pencil
+                      Contribute
+                    %br
+                  %li
+                    %a{href: admins_path}
+                      %span.fa.fa-mortar-board
+                      Captains
+                    %br
+                - if (admin_signed_in?) && !(user_signed_in?)
+                  %li
+                    %a{href: new_post_path}
+                      %span.fa.fa-pencil
+                      New Post
+                    %br
+                  %li
+                    %a{href: new_workshop_path}
+                      %span.fa.fa-university
+                      New Workshop
+                    %br
+                  %li
+                    %a{href: new_workshop_path}
+                      %span.fa.fa-users
+                      Mentees
+                    %br
+                  
             .navbar-brand
               =image_tag "logo1.png"
           - if !(user_signed_in?) && !(admin_signed_in?)

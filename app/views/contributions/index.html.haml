@@ -1,0 +1,5 @@
+.row
+	.col-md-8.col-md-offset-2.form
+		-@contributions.each do |contribution|
+			=link_to contribution.title, contribution
+			%br

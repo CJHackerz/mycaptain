@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
 
 
+
   root 'statics#index'
 
   resources :posts do
@@ -27,5 +28,7 @@ Rails.application.routes.draw do
   
   devise_for :users
   resources :users
+
+  resources :contributions
   
 end

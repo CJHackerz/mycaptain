@@ -1,0 +1,7 @@
+=simple_form_for @contribution do |f|
+	=f.association :workshop
+	=f.input :title
+	
+	=f.input :content
+	%br
+	=f.button :submit
