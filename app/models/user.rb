@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
 
   has_many :comments
   has_many :contributions
+  has_many :forum_threads
+  has_many :responses
 
   validates :name, presence: true
   validates :date_of_birth, presence: true

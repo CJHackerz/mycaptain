@@ -1,0 +1,32 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @forum_thread.title
+
+#comments
+  %h3.caption#comments-count
+    =pluralize(@responses.count, "Response")
+  %hr
+    -@forum_thread.responses.each do |comment|
+      -if comment.user_id ==nil
+        #admin_comment
+          %p
+            =image_tag comment.admin.avatar.url(:thumb), class: "img-circle avatar"
+            =link_to comment.admin.name, admin_path(comment.admin.id)
+            =comment.content
+          %p.pull-right= time_ago_in_words(comment.created_at)
+          %hr
+        %br
+      -else
+        %p
+          =image_tag comment.user.avatar.url(:thumb), class: "img-circle avatar"
+          =link_to comment.user.name, user_path(comment.user.id)
+          =comment.content
+        %p.pull-right= time_ago_in_words(comment.created_at)
+        %hr
+  =render 'responses/form'
+
+= link_to 'Edit', edit_forum_thread_path(@forum_thread)
+\|
+= link_to 'Back', forum_threads_path

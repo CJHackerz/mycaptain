@@ -4,16 +4,46 @@
 //=======================================================
 :javascript
   $(function(){
-    $('.navbar').hide();
+    $('.navbar-custom').hide();
+    $('body').css({'background-color':'#08369a'});
+    $('body').css({'background': '-webkit-linear-gradient(left, #020963 , #08369a)'});
+    $('.footer').hide();
   });
 //=========================================================
+.navbar.navbar-top.navbar-default#navbar-transparent
+  %ul.nav.navbar-nav.push-center
+    %li.white 
+      %a{href: statics_about_path} About MyCaptain
+        
+    %li 
+      %a{href:new_user_session_path }
+        Log In
+    %li 
+      %a{href:new_admin_session_path }
+        Mentor?
+    %li 
+      %a{href:"http://www.theclimber.in" }
+        The Climber
+%br
+%br
+%br
+
+
+    
 .row
-  .col-md-12
+  .col-xs-10.col-xs-offset-1
     #logos
-      =image_tag "logo.png"
-      =image_tag "logo.png"
-      =image_tag "logo.png"
-      =image_tag "logo.png"
-      =image_tag "logo.png"
+      =image_tag "1.png"
+      =image_tag "2.png"
+      =image_tag "3.png"
+
+
+
+%p.desc
+  A platform for teenagers to get mentored in their passion
+
+.center
+  =link_to 'Sign Up', new_user_registration_path, class: "btn btn-empty", id: "wider"
+
         
   

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :forum_threads
   resources :contributions
   get 'comments/create'
 
@@ -11,7 +12,7 @@ Rails.application.routes.draw do
 
 
 
-  root 'statics#index'
+  
 
   resources :posts do
     member do
@@ -21,6 +22,13 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+  resources :forum_threads do
+    member do
+      get 'like', to: 'posts#upvote'
+      get 'dislike', to: 'posts#downvote'
+    end
+    resources :responses
+  end
 
   resources :workshops
   
@@ -31,5 +39,15 @@ Rails.application.routes.draw do
   resources :users
 
   resources :contributions
+
+  authenticated :user do 
+    root 'posts#index', as: "authenticated_user_root"
+  end
+
+  authenticated :admin do 
+    root 'workshops#index', as: "authenticated_admin_root"
+  end
+
+  root 'statics#index'
   
 end

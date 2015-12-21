@@ -10,6 +10,7 @@ class ContributionsController < ApplicationController
   # GET /contributions/1
   # GET /contributions/1.json
   def show
+    @user = User.find(@contribution.user_id)
   end
 
   # GET /contributions/new

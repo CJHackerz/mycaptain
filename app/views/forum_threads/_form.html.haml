@@ -1,0 +1,8 @@
+= simple_form_for(@forum_thread) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :title
+
+  .form-actions
+    = f.button :submit

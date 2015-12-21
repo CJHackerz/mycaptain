@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151220160951) do
+ActiveRecord::Schema.define(version: 20151221141649) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "name"
@@ -85,6 +85,14 @@ ActiveRecord::Schema.define(version: 20151220160951) do
 
   add_index "embedurls", ["post_id"], name: "index_embedurls_on_post_id"
 
+  create_table "forum_threads", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "user_id"
+    t.integer  "workshop_id"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.text     "content"
@@ -99,6 +107,19 @@ ActiveRecord::Schema.define(version: 20151220160951) do
   end
 
   add_index "posts", ["admin_id"], name: "index_posts_on_admin_id"
+
+  create_table "responses", force: :cascade do |t|
+    t.string   "content"
+    t.integer  "forum_thread_id"
+    t.integer  "user_id"
+    t.integer  "admin_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "responses", ["admin_id"], name: "index_responses_on_admin_id"
+  add_index "responses", ["forum_thread_id"], name: "index_responses_on_forum_thread_id"
+  add_index "responses", ["user_id"], name: "index_responses_on_user_id"
 
   create_table "stuffs", force: :cascade do |t|
     t.integer  "post_id"

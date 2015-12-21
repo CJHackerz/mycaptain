@@ -15,7 +15,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import url(https://fonts.googleapis.com/css?family=Varela+Round);
-@import url(https://fonts.googleapis.com/css?family=Lato:400,900,300italic);
+@import url(https://fonts.googleapis.com/css?family=Lato:400,900,300italic,300);
 @import url(https://fonts.googleapis.com/css?family=Lora);
 @import "font-awesome-sprockets";
 @import "font-awesome";
@@ -84,6 +84,10 @@ body{
 @media only screen and (max-width: 768px) {
     .navbar-brand {
         float: right;
+    }
+
+    #navbar-transparent{
+    	display: none;
     }
 }
 
@@ -204,6 +208,54 @@ html,body{
 .center{
 	text-align: center;
 }
+
+#navbar-transparent{
+	background: none;
+	border: none;
+	a,a:visited,a:active{
+		color: #FAC800;
+		font-family: Lato;
+		font-size: 20px;
+		font-weight: 300;
+	}
+}
+
+.push-center{
+	margin-left: 30%;
+}
+
+#logos{
+	padding-top: 50px;
+	padding-bottom: 150px;
+}
+
+.desc{
+	color: white;
+	text-align: center;
+	font-size: 25px;
+	font-weight: 300;
+	padding-bottom: 20px;
+}
+
+.white{
+	color: #FAC800;
+}
+
+.btn-empty{
+	background: none;
+	width: 150px;
+	border: 1px solid #FAC800;
+	color: #FAC800;
+	font-size: 20px;
+	font-weight: 300;
+	padding: 5px;
+	&:hover{
+		background-color: #FAC800;
+		color: blue;
+	}
+}
+
+
 
 
 
