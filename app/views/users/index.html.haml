@@ -1,0 +1,13 @@
+.container
+  .row
+    .col-md-8.col-md-offset-2
+      -@users.each do |admin|
+        .col-md-6
+          .thumbnail
+            =image_tag(admin.avatar.url)
+            .caption
+              %h3
+                %i.fa.fa-mortar-board
+                =link_to admin.try(:name), admin,class: "arvo"
+              %p=admin.workshop.title
+              %p=pluralize(admin.contributions.count, "Contribution")

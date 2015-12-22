@@ -8,6 +8,8 @@
       .form-inputs
         = f.input :email, required: true, autofocus: true,label: false, placeholder: "Email"
         = f.input :avatar, required: true
+        = f.input :phone_number, required: true
+        = f.input :about, required: true
         = f.input :date_of_birth, required: true
         = f.input :name, required: true,label: false, placeholder: "Name"
         = f.association :workshop, required: true,disabled: true,label: false, hint: "You can not become the mentor of another workshop if you have already signed up. If you selected the wrong workshop or if you wish to change with consent of the concerned authority then contact the tech admin."

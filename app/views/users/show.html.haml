@@ -1,26 +1,35 @@
 .co
 	.row
 		.container
-			.col-md-4
-				=image_tag @user.avatar.url(:thumb),class: 'img-rounded dp thumbnail'
-				%h4= @user.name
-				%p
+			.col-md-6.col-md-offset-3.form
+				=image_tag @user.avatar.url(:thumb),class: 'img-rounded dp thumbnail center-block'
+				%h1.center
+					%i.fa.fa-user
+					= @user.name
+				%p.center
 					%em= @user.email
-				%hr
-				%p
+				%p.center
+					+91-
+					= @user.phone_number
+				%p.center
+					Mentee in
+					= @user.workshop.title
+
+				%p.center
 					%i.fa.fa-clock-o
 					Joined on
 					=@user.created_at.strftime("%B %d, %Y")
 				%hr
-			-if user_signed_in?
-				-if @user.id == current_user.id
-					.col-md-8
-						.alert.alert-info
-							.row
-								.col-md-8
-									%p
-										%strong 
-											Tip: 
-										Updating oyur profile with your avatar, phone number and location will help other users know you and contact you more easily.
-								.col-md-4
-									=link_to 'Update Profile',edit_user_registration_path, class: "btn btn-primary waves-effect waves-effect-light btn-sm pull-right"
+				%h2.center About Me
+				.coontainer
+					%p=simple_format(@user.about)
+				%hr
+				%h2.center Contact me!
+				%h1
+					%i.fa.fa-whatsapp
+					%i.fa.fa-facebook
+					%i.fa.fa-twitter
+					%i.fa.fa-pinterest
+					%i.fa.fa-linkedin
+					%i.fa.fa-chrome
+				

@@ -9,6 +9,8 @@
         = f.input :email, label: false, placeholer: "email",disabled:true
         = f.input :avatar
         = f.input :name
+        = f.input :phone_number
+        = f.input :about
         = f.association :workshop
         - if devise_mapping.confirmable? && resource.pending_reconfirmation?
           %p

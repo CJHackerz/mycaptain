@@ -23,7 +23,7 @@ class CommentsController < ApplicationController
   private
 
   def authenticate_either!
-    authenticate_user! if !(admin_signed_in)
+    authenticate_user! if !(admin_signed_in?)
   end 
 
 end
