@@ -1,6 +1,6 @@
 class WorkshopsController < ApplicationController
   before_action :set_workshop, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_admin!, except: [:show,:index,:create]
+  before_action :authenticate_admin!, except: [:show,:index,:creategit add .]
 
   # GET /workshops
   # GET /workshops.json
@@ -16,7 +16,7 @@ class WorkshopsController < ApplicationController
 
   # GET /workshops/new
   def new
-    @workshop = current_admin.workshops.build
+    @workshop = Workshop.new
   end
 
   # GET /workshops/1/edit
@@ -26,7 +26,7 @@ class WorkshopsController < ApplicationController
   # POST /workshops
   # POST /workshops.json
   def create
-    @workshop = current_admin.workshops.build(workshop_params)
+    @workshop = Workshop.new(workshop_params)
 
     respond_to do |format|
       if @workshop.save
