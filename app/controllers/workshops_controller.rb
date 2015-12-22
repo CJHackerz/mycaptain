@@ -1,6 +1,6 @@
 class WorkshopsController < ApplicationController
   before_action :set_workshop, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_admin!, except: [:show,:index]
+  before_action :authenticate_admin!, except: [:show,:index,:create]
 
   # GET /workshops
   # GET /workshops.json
