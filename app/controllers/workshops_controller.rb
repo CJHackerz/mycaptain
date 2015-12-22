@@ -16,7 +16,7 @@ class WorkshopsController < ApplicationController
 
   # GET /workshops/new
   def new
-    @workshop = current_admin.workshops.buid
+    @workshop = current_admin.workshops.build
   end
 
   # GET /workshops/1/edit
@@ -26,7 +26,7 @@ class WorkshopsController < ApplicationController
   # POST /workshops
   # POST /workshops.json
   def create
-    @workshop = current_admin.workshops.buid(workshop_params)
+    @workshop = current_admin.workshops.build(workshop_params)
 
     respond_to do |format|
       if @workshop.save
