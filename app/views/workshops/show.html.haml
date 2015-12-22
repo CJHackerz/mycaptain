@@ -1,17 +1,11 @@
 %p#notice= notice
-
-= image_tag @workshop.cover.url(:medium)
-%p
-  %b Title:
-  = @workshop.title
-%p
-  %b Content:
-  = @workshop.content
-%p
-  %b Admin:
-  = @workshop.admin.email
-
-
-= link_to 'Edit', edit_workshop_path(@workshop)
-\|
-= link_to 'Back', workshops_path
+%br
+%br
+%br
+.row
+  .col-md-6.col-md-offset-3
+    .thumbnail
+      = image_tag @workshop.cover.url, class: "black center"
+      %h2.center= @workshop.title
+      %hr
+      %p.center=(@workshop.content)

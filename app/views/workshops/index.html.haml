@@ -1,7 +1,9 @@
-
+%br
+%br
+%br
 .container
   .row
-    .col-md-8
+    .col-md-8.col-md-offset-2
       -@workshops.each do |workshop|
         .col-md-12
           .thumbnail.pasty2
@@ -20,5 +22,3 @@
               .btn-group.down
                 =link_to 'Like',post_path(workshop),class: "btn btn-primary"
                 =link_to 'Mentor Profile',admin_path(workshop.admin),class: "btn btn-primary"
-    .col-md-4
-      =render 'aggregator/aside'
