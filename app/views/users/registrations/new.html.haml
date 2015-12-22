@@ -13,7 +13,7 @@
         = f.input :email, required: true, autofocus: true,label: false,placeholder: "your email id"
         = f.input :name, required: true,label: false,placeholder: "your name"
         = f.association :workshop, required: true,label: "Workshop"
-        = f.input :date_of_birth, required: true
+        = f.input :phone_number, as: :string, label: false, placeholder: "your phone number"
         = f.input :password, required: true,label: false,placeholder: "your new password (8 characters minimum)"
         = f.input :password_confirmation, required: true,label: false,placeholder: "confirm your new password"
       .form-actions

@@ -13,8 +13,9 @@ class User < ActiveRecord::Base
   has_many :forum_threads
   has_many :responses
 
-  validates :name, presence: true
-  validates :date_of_birth, presence: true
-  validates :workshop, presence: true
+  # validates :name, presence: true
+  # validates :date_of_birth, presence: true
+  # validates :workshop, presence: true
+  # validates :phone_number, presence: true
   
 end

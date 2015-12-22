@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   get 'statics/contact'
 
-
+devise_for :users
 
 
   
@@ -35,7 +35,7 @@ Rails.application.routes.draw do
   devise_for :admins
   resources :admins
   
-  devise_for :users
+   
   resources :users
 
   resources :contributions

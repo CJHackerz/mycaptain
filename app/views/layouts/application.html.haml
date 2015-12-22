@@ -38,6 +38,23 @@
                     %span.glyphicon.glyphicon-align-justify
                 %br
 
+                -if !(user_signed_in?) and !(admin_signed_in?)
+                  %li
+                    %a{href: new_user_registration_path}
+                      %span.fa.fa-sign-in
+                      Sign In
+                    %br
+                  %li
+                    %a{href: new_contribution_path}
+                      %span.fa.fa-user-plus
+                      Sign Up
+                    %br
+                  %li
+                    %a{href: new_admin_session_path}
+                      %span.fa.fa-mortar-board
+                      Mentor?
+                    %br
+
                 - if (user_signed_in?) && !(admin_signed_in?)
                   %li
                     %a{href: forum_threads_path}
@@ -54,6 +71,11 @@
                       %span.fa.fa-mortar-board
                       Captains
                     %br
+                  %hr
+                  %li
+                    =link_to destroy_user_session_path, method: :delete do
+                      %span.fa.fa-sign-out
+                      Sign Out
                 
 
                 - if (admin_signed_in?) && !(user_signed_in?)
@@ -68,10 +90,14 @@
                       New Workshop
                     %br
                   %li
-                    %a{href: users_path}
+                    =link_to users_path do
                       %span.fa.fa-users
                       Mentees
-                    %br
+                  %hr
+                  %li
+                    =link_to destroy_admin_session_path, method: :delete do
+                      %span.fa.fa-sign-out
+                      Sign Out
                   
             .navbar-brand
               =image_tag "logo1.png"
