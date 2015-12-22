@@ -4,22 +4,26 @@ class ContributionsController < ApplicationController
   # GET /contributions
   # GET /contributions.json
   def index
+    authenticate_either!
     @contributions = Contribution.all
   end
 
   # GET /contributions/1
   # GET /contributions/1.json
   def show
+    authenticate_either!
     @user = User.find(@contribution.user_id)
   end
 
   # GET /contributions/new
   def new
+    authenticate_user!
     @contribution = current_user.contributions.build
   end
 
   # GET /contributions/1/edit
   def edit
+    authenticate_user!
   end
 
   # POST /contributions
@@ -55,6 +59,7 @@ class ContributionsController < ApplicationController
   # DELETE /contributions/1
   # DELETE /contributions/1.json
   def destroy
+    authenticate_admmin!
     @contribution.destroy
     respond_to do |format|
       format.html { redirect_to contributions_url, notice: 'Contribution was successfully destroyed.' }
@@ -71,5 +76,9 @@ class ContributionsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def contribution_params
       params.require(:contribution).permit( :workshop_id, :title, :content)
+    end
+
+    def authenticate_either!
+      authenticate_user! if !(admin_signed_in?)
     end
 end

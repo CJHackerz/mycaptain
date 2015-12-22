@@ -1,4 +1,5 @@
 class ResponsesController < ApplicationController
+  before_action :authenticate_either!
 	def create
   	@forum_thread = ForumThread.find(params[:forum_thread_id])
   	@response = Response.create(params[:response].permit(:content))
@@ -15,5 +16,11 @@ class ResponsesController < ApplicationController
   	else
   		render 'new'
   	end
+  end
+
+  private
+
+  def authenticate_either!
+    authenticate_user! if !(admin_signed_in?)
   end
 end

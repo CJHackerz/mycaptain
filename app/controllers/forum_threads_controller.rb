@@ -4,22 +4,26 @@ class ForumThreadsController < ApplicationController
   # GET /forum_threads
   # GET /forum_threads.json
   def index
+    authenticate_either!
     @forum_threads = ForumThread.all
   end
 
   # GET /forum_threads/1
   # GET /forum_threads/1.json
   def show
+    authenticate_either!
     @responses = Response.where(forum_thread_id: @forum_thread.id)
   end
 
   # GET /forum_threads/new
   def new
+    authenticate_user!
     @forum_thread = current_user.forum_threads.build
   end
 
   # GET /forum_threads/1/edit
   def edit
+    authenticate_user!
   end
 
   # POST /forum_threads
@@ -55,6 +59,7 @@ class ForumThreadsController < ApplicationController
   # DELETE /forum_threads/1
   # DELETE /forum_threads/1.json
   def destroy
+    authenticate_user!
     @forum_thread.destroy
     respond_to do |format|
       format.html { redirect_to forum_threads_url, notice: 'Forum thread was successfully destroyed.' }
@@ -71,5 +76,9 @@ class ForumThreadsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def forum_thread_params
       params.require(:forum_thread).permit(:title,:user_id,:workshop_id)
+    end
+
+    def authenticate_either!
+      authenticate_user! if !(admin_signed_in?)
     end
 end

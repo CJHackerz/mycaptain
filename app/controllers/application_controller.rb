@@ -13,6 +13,8 @@ class ApplicationController < ActionController::Base
       super # Use the default one
     end
   end
+
+  
 end
 
 ##USER STROG PARAMETERS SANITIZER

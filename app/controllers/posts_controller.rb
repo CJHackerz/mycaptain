@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     if user_signed_in?
-      @posts = Post.all
+      @posts = Post.where(workshop_id: current_user.workshop_id)
       # @posts = Post.where(workshop_id: current_user.workshop_id)
     elsif admin_signed_in?
       @posts = Post.where(admin_id: current_admin.id)
@@ -26,11 +26,14 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
+    authenticate_admin!
+    flash[:danger] = "Must be signed in as a captain to create a post"
     @post = current_admin.posts.build
   end
 
   # GET /posts/1/edit
   def edit
+    authenticate_admin!
   end
 
   # POST /posts
@@ -66,6 +69,7 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
+    authenticate_admin!
     @post.destroy
     respond_to do |format|
       format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }

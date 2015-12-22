@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+
+  before_action :authenticate_either!
   
   def create
   	@post = Post.find(params[:post_id])
@@ -17,5 +19,11 @@ class CommentsController < ApplicationController
   		render 'new'
   	end
   end
+
+  private
+
+  def authenticate_either!
+    authenticate_user! if !(admin_signed_in)
+  end 
 
 end
