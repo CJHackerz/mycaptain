@@ -1,18 +1,33 @@
-%p#notice= notice
+%br
+%br
+%br
+.row
+  .col-md-4.col-md-offset-4.form
+    %p#notice= notice
+    %h3.center
+      Contribution #
+      =@contribution.id
+    %hr
 
-%p
-  %b User:
-  =@user.name
-%p
-  %b Workshop:
-  = @contribution.workshop.title
-%p
-  %b Title:
-  = @contribution.title
-%p
-  %b Content:
-  = @contribution.content
+    %h4
+      %b User:
+      =@user.name
+    %hr
+    %h4
+      %b Workshop:
+      = @contribution.workshop.title
+    %hr
+    %h4
+      %b Title:
+      = @contribution.title
+    %hr
+    %h4
+      %b Content:
+      = @contribution.content
+    %hr
 
-= link_to 'Edit', edit_contribution_path(@contribution)
-\|
-= link_to 'Back', contributions_path
+    = link_to 'Edit', edit_contribution_path(@contribution) , class: "btn btn-primary pull-right" if user_signed_in? and current_user = @user
+    = link_to 'Back', contributions_path, class: "btn btn-default pull-left"
+%br
+%br
+%br

@@ -2,7 +2,12 @@
   = f.error_notification
 
   .form-inputs
+    = f.association :workshop
     = f.input :title
 
   .form-actions
-    = f.button :submit
+    = f.button :submit, class: "btn btn-primary pull-right"
+%br
+%br
+= link_to 'Show', @forum_thread, class: "btn btn-success pull-right"
+= link_to 'Back', forum_threads_path,class: "btn btn-default pull-left"

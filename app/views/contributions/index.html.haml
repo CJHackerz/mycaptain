@@ -1,23 +1,27 @@
-%h1 Listing contributions
-
-%table
-  %thead
-    %tr
-      %th Title
-      %th Content
-      %th
-      %th
-      %th
-
-  %tbody
-    - @contributions.each do |contribution|
-      %tr
-        %td= contribution.title
-        %td= contribution.content
-        %td= link_to 'Show', contribution
-        %td= link_to 'Edit', edit_contribution_path(contribution)
-        %td= link_to 'Destroy', contribution, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
 %br
+%br
+%br
+.row
+  .col-md-8.col-md-offset-2.form
+    %h1.center All Contributions
+    %hr
+    -@contributions.each do |c|
+      %br
+      %p
+        .pull-right
+          =time_ago_in_words(c.created_at)
+        =link_to c.title, c
+        %em by
+        =link_to c.user.name, c.user
+        %em in
+        =link_to c.workshop.title
+      %br
+        
 
-= link_to 'New Contribution', new_contribution_path
+
+    %br
+    .center
+      = link_to 'New Contribution', new_contribution_path,class: "btn btn-primary"
+%br
+%br
+%br

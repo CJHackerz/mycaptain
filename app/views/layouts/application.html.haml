@@ -39,7 +39,7 @@
 
                 - if (user_signed_in?) && !(admin_signed_in?)
                   %li
-                    %a{href: new_post_path}
+                    %a{href: forum_threads_path}
                       %span.fa.fa-users
                       Workshop Forum
                     %br
@@ -105,7 +105,7 @@
             .collapse.navbar-collapse
               %ul.nav.navbar-nav.navbar-right
                 %li
-                  %a{href: statics_about_path}
+                  %a{href: forum_threads_path}
                     %span
                       %i.fa.fa-users
                       Worshop Forum
