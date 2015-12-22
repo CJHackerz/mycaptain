@@ -4,7 +4,7 @@ class AdminsController < ApplicationController
 	end
 
 	def index
-		@admins = Admin.all
+		@admins = Admin.where(workshop_id: !nil)
 	end
 
 	private
