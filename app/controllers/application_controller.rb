@@ -24,7 +24,7 @@ class User::ParameterSanitizer < Devise::ParameterSanitizer
   end
 
   def account_update
-    default_params.permit(:email, :password, :password_confirmation, :avatar, :current_password,:phone_number,:workshop_id,:name,:about)
+    default_params.permit(:password, :password_confirmation, :avatar, :current_password,:phone_number,:name,:about)
   end
 
   def sign_in
@@ -34,11 +34,11 @@ end
 ##ADMIN STROG PARAMETERS SANITIZER
 class Admin::ParameterSanitizer < Devise::ParameterSanitizer
   def sign_up
-    default_params.permit(:name, :date_of_birth, :email, :password, :password_confirmation, :avatar)
+    default_params.permit(:name, :email, :password, :password_confirmation,:workshop_id, :phone_number)
   end
 
   def account_update
-    default_params.permit(:name, :date_of_birth, :email, :password, :password_confirmation, :avatar,:current_password, :workshop_id,:about,:phone_number)
+    default_params.permit(:name, :email, :password, :password_confirmation, :avatar,:current_password, :workshop_id,:about,:phone_number)
   end
 
   def sign_in

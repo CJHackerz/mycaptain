@@ -147,10 +147,14 @@
                       %i.fa.fa-mortar-board
                       Captains
                 %li
+                  =link_to destroy_user_session_path, method: :delete do
+                    %span.fa.fa-sign-out
+                    Sign Out
+                %li
                   %a{href: user_path(current_user)}
                     %span
-                      =image_tag current_user.avatar.url , class: "img img-rounded"
-                      &#32;Profile
+                      =image_tag current_user.avatar.url , class: "img img-circle upar"
+                      Profile
           
 
           -elsif admin_signed_in? && !(user_signed_in?)
@@ -172,10 +176,14 @@
                       %i.fa.fa-users
                       Mentees
                 %li
+                  =link_to destroy_admin_session_path, method: :delete do
+                    %span.fa.fa-sign-out
+                    Sign Out
+                %li
                   %a{href: admin_path(current_admin)}
                     %span
-                      =image_tag current_admin.avatar.url,class: "img img-rounded" 
-                      &#32;Profile
+                      =image_tag current_admin.avatar.url,class: "img img-circle upar" 
+                      Profile
               
         / /.navbar-collapse
       -if user_signed_in? or admin_signed_in?
@@ -185,4 +193,3 @@
         = yield
       -else
         =yield
-     
