@@ -13,7 +13,6 @@ class PostsController < ApplicationController
       redirect_to new_user_session_path
     end
   end
-
   # GET /posts/1
   # GET /posts/1.json
   def show
