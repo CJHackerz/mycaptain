@@ -81,6 +81,10 @@ body{
 	background-color: grey;
 }
 
+.nonav{
+	display: none;
+}
+
 @media only screen and (max-width: 768px) {
     .navbar-brand {
         float: right;
@@ -88,6 +92,10 @@ body{
 
     #navbar-transparent{
     	display: none;
+    }
+
+    .nonav{
+    	display: block;
     }
 }
 
