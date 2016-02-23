@@ -100,7 +100,8 @@
                       Sign Out
                   
             .navbar-brand
-              =image_tag "logo1.png"
+              = link_to root_path do 
+                = image_tag "logo1.png"
           
 
           - if !(user_signed_in?) && !(admin_signed_in?)
