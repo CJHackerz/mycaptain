@@ -40,12 +40,12 @@
 
                 -if !(user_signed_in?) and !(admin_signed_in?)
                   %li
-                    %a{href: new_user_registration_path}
+                    %a{href: new_user_session_path}
                       %span.fa.fa-sign-in
                       Sign In
                     %br
                   %li
-                    %a{href: new_contribution_path}
+                    %a{href: new_user_registration_path}
                       %span.fa.fa-user-plus
                       Sign Up
                     %br
