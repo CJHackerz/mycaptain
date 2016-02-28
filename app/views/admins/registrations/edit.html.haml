@@ -15,6 +15,9 @@
         - if devise_mapping.confirmable? && resource.pending_reconfirmation?
           %p
             Currently waiting confirmation for: #{resource.unconfirmed_email}
+        = f.input :facebook,label: "Facebok Username"
+        = f.input :twitter,label: "Twitter Username"
+        = f.input :linkedin,label: "Linkedin Profile URL"
         = f.input :password, autocomplete: "off", hint: "Leave it blank if you don't want to change it.", required: false, label: false, placeholder: "New Password"
         = f.input :password_confirmation, required: false, label: false, placeholder: "Confirm your new password"
         = f.input :current_password,label: false, placeholder:"Current Password", hint: "We need your current password to confirm your changes.", required: true

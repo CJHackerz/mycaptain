@@ -24,7 +24,7 @@ class User::ParameterSanitizer < Devise::ParameterSanitizer
   end
 
   def account_update
-    default_params.permit(:password, :password_confirmation, :avatar, :current_password,:phone_number,:name,:about)
+    default_params.permit(:password, :password_confirmation, :avatar, :current_password,:phone_number,:name,:about,:facebook,:twitter,:linkedin)
   end
 
   def sign_in
@@ -38,7 +38,7 @@ class Admin::ParameterSanitizer < Devise::ParameterSanitizer
   end
 
   def account_update
-    default_params.permit(:name, :email, :password, :password_confirmation, :avatar,:current_password, :workshop_id,:about,:phone_number)
+    default_params.permit(:name, :email, :password, :password_confirmation, :avatar,:current_password, :workshop_id,:about,:phone_number,:facebook,:twitter,:linkedin)
   end
 
   def sign_in

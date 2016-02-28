@@ -154,7 +154,7 @@
                 %li
                   %a{href: user_path(current_user)}
                     %span
-                      =image_tag current_user.avatar.url , class: "img img-circle upar"
+                      =image_tag current_user.avatar.url , class: "img upar"
                       Profile
           
 
@@ -183,7 +183,7 @@
                 %li
                   %a{href: admin_path(current_admin)}
                     %span
-                      =image_tag current_admin.avatar.url,class: "img img-circle upar" 
+                      =image_tag current_admin.avatar.url,class: "img upar" 
                       Profile
               
         / /.navbar-collapse

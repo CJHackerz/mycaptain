@@ -11,6 +11,9 @@
         = f.input :name
         = f.input :phone_number
         = f.input :about
+        = f.input :facebook,label: "Facebok Username"
+        = f.input :twitter,label: "Twitter Username"
+        = f.input :linkedin,label: "Linkedin Profile URL"
         = f.association :workshop
         - if devise_mapping.confirmable? && resource.pending_reconfirmation?
           %p

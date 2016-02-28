@@ -20,15 +20,23 @@
 					Joined on
 					=@admin.created_at.strftime("%B %d, %Y")
 				%hr
-				%h2.center About Me
-				.coontainer
-					%p=simple_format(@admin.about)
-				%hr
-				%h2.center Contact me!
-				%h1
-					%i.fa.fa-whatsapp
-					%i.fa.fa-facebook
-					%i.fa.fa-twitter
-					%i.fa.fa-pinterest
-					%i.fa.fa-linkedin
-					%i.fa.fa-chrome
+				- if @admin.about != nil
+					%h2.center About Me
+					.coontainer
+						%p=simple_format(@admin.about)
+				-if @admin.facebook != nil && @admin.twitter != nil && @admin.linkedin != nil
+					%hr
+					%h2.center Contact me!
+					%h1
+						-if @admin.facebook != nil
+							=link_to "http://facebook.com/#{@admin.facebook}" do
+								%i.fa.fa-facebook
+						-if @admin.twitter != nil
+							=link_to "http://twitter.com/#{@admin.twitter}" do
+								%i.fa.fa-twitter
+						-if @admin.linkedin != nil
+							=link_to "#{@admin.linkedin}" do
+								%i.fa.fa-linkedin
+				-if admin_signed_in? and current_admin.id = @admin.id	
+					.center
+						=link_to 'Edit Profile', edit_admin_registration_path, class: "btn btn-primary"

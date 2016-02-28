@@ -19,17 +19,26 @@
 					%i.fa.fa-clock-o
 					Joined on
 					=@user.created_at.strftime("%B %d, %Y")
-				%hr
-				%h2.center About Me
-				.coontainer
-					%p=simple_format(@user.about)
-				%hr
-				%h2.center Contact me!
-				%h1
-					%i.fa.fa-whatsapp
-					%i.fa.fa-facebook
-					%i.fa.fa-twitter
-					%i.fa.fa-pinterest
-					%i.fa.fa-linkedin
-					%i.fa.fa-chrome
+				- if @user.about != nil
+					%hr
+					%h2.center About Me
+					.coontainer
+						%p=simple_format(@user.about)
+				-if @user.facebook != nil && @user.twitter != nil && @user.linkedin != nil
+					%hr
+					%h2.center Contact me!
+					%h1
+						-if @user.facebook != nil
+							=link_to "http://facebook.com/#{@user.facebook}" do
+								%i.fa.fa-facebook
+						-if @user.twitter != nil
+							=link_to "http://twitter.com/#{@user.twitter}" do
+								%i.fa.fa-twitter
+						-if @user.linkedin != nil
+							=link_to "#{@user.linkedin}" do
+								%i.fa.fa-linkedin
+
+				-if user_signed_in? and current_user.id = @user.id	
+					.center
+						=link_to 'Edit Profile', edit_user_registration_path, class: "btn btn-primary"
 				
