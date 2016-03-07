@@ -104,9 +104,7 @@ body{
     }
 }
 
-.post{
-	
-}
+
 
 .form{
 	border: 1px solid #b9b9b9;
@@ -263,9 +261,10 @@ html,body{
 	font-size: 20px;
 	font-weight: 300;
 	padding: 5px;
+	transition: background-color 0.3s;
 	&:hover{
 		background-color: #FAC800;
-		color: blue;
+		color: black;
 	}
 }
 
