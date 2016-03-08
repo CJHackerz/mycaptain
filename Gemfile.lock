@@ -41,6 +41,8 @@ GEM
     autoprefixer-rails (6.1.2)
       execjs
       json
+    aws-sdk (2.2.24)
+      aws-sdk-resources (= 2.2.24)
     aws-sdk-core (2.2.24)
       jmespath (~> 1.0)
     aws-sdk-rails (1.0.1)
@@ -211,6 +213,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts_as_votable
+  aws-sdk
   aws-sdk-rails
   bootstrap-sass
   byebug
