@@ -67,5 +67,5 @@ gem 'font-awesome-sass'
 gem 'materialize-sass'
 gem 'acts_as_votable'
 gem 'aws-sdk-rails'
-gem 'aws-sdk'
+gem 'aws-sdk', '<2.0'
 
