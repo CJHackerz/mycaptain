@@ -66,4 +66,5 @@ gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 gem 'materialize-sass'
 gem 'acts_as_votable'
+gem 'aws-sdk'
 

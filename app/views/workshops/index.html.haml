@@ -16,9 +16,9 @@
                 -@admins = Admin.where(workshop_id: workshop.id)
                 -@admins.each do |admin|
                   =admin.name
-                  ,
+                  -if @admins.size > 1
+                    ,
               %hr
               %p=workshop.content
               .btn-group.down
-                =link_to 'Like',post_path(workshop),class: "btn btn-primary"
-                =link_to 'Mentor Profile',admin_path(workshop.admin),class: "btn btn-primary"
+                =link_to 'View More',workshop_path(workshop),class: "btn btn-primary"

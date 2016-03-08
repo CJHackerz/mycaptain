@@ -44,11 +44,7 @@
                       %span.fa.fa-sign-in
                       Sign In
                     %br
-                  %li
-                    %a{href: new_user_registration_path}
-                      %span.fa.fa-user-plus
-                      Sign Up
-                    %br
+                  
                   %li
                     %a{href: new_admin_session_path}
                       %span.fa.fa-mortar-board
@@ -122,11 +118,7 @@
                     %span
                       %i.fa.fa-sign-in
                       Sign In
-                %li#green
-                  %a{href: new_user_registration_path}
-                    %span
-                      %i.fa.fa-user-plus
-                      Join
+                
           
 
           -elsif user_signed_in? && !(admin_signed_in?)

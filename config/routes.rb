@@ -45,7 +45,7 @@ devise_for :users
   end
 
   authenticated :admin do 
-    root 'workshops#index', as: "authenticated_admin_root"
+    root 'posts#new', as: "authenticated_admin_root"
   end
 
   root 'statics#index'
