@@ -34,7 +34,7 @@
               %ul.dropdown-menu
                 %br
                 %li
-                  %a{href: "#"}
+                  %a
                     %span.glyphicon.glyphicon-align-justify
                 %br
 
@@ -67,6 +67,10 @@
                       %span.fa.fa-mortar-board
                       Captains
                     %br
+                  %li
+                    %a{href: user_path(current_user)}
+                      %span.fa.fa-profile
+                        Profile
                   %hr
                   %li
                     =link_to destroy_user_session_path, method: :delete do
@@ -75,6 +79,16 @@
                 
 
                 - if (admin_signed_in?) && !(user_signed_in?)
+                  %li
+                    %a{href: workshop_path(current_admin.workshop)}
+                      %span.fa.fa-users
+                      My Workshop
+                    %br
+                  %li
+                    %a{href: posts_path}
+                      %span.fa.fa-files-o
+                      My Posts
+                    %br
                   %li
                     %a{href: new_post_path}
                       %span.fa.fa-pencil
@@ -89,6 +103,12 @@
                     =link_to users_path do
                       %span.fa.fa-users
                       Mentees
+                    %br
+                  %li
+                    %a{href: admin_path(current_admin)}
+                      %span.fa.fa-user
+                        Profile
+                      %br
                   %hr
                   %li
                     =link_to destroy_admin_session_path, method: :delete do
