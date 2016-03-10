@@ -187,10 +187,10 @@
                       %i.fa.fa-pencil
                       New Post
                 %li
-                  %a{href: new_workshop_path}
+                  %a{href: workshop_path(current_admin.workshop)}
                     %span
                       %i.fa.fa-university
-                      New Workshop
+                      = current_admin.workshop.title
                 %li
                   %a{href: users_path}
                     %span

@@ -4,7 +4,7 @@
       -@admins.each do |admin|
         .col-md-6
           .thumbnail
-            =image_tag(admin.avatar.url)
+            =image_tag(admin.avatar.url(:medium))
             .caption
               %h3
                 %i.fa.fa-mortar-board
