@@ -3,7 +3,8 @@
 		= f.error_notification
 
 		.form-inputs
-			= f.association :workshop, class: "browser-default"
+			.invisible
+				= f.association :workshop, class: "browser-default", selected: current_admin.workshop.title
 			= f.input :cover
 			= f.input :title,label: false,placeholder: "Title"
 			= f.input :content,label: false,placeholder: "Content"
@@ -16,7 +17,7 @@
 				.links
 					%br
 					%br
-					= link_to_add_association 'add youtube url', f, :embedurls,class: "btn pull-right"
+					= link_to_add_association '+ YouTube Video', f, :embedurls,class: "btn btn-primary pull-right"
 			%br
 			%br
 			%hr.form-line
@@ -26,7 +27,7 @@
 				.links
 					%br
 					%br
-					= link_to_add_association 'add content image', f, :stuffs,class: "btn pull-right"
+					= link_to_add_association '+ Image', f, :stuffs,class: "btn btn-primary pull-right"
 
 		.form-actions
 			%br

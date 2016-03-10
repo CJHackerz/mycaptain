@@ -1,4 +1,4 @@
-class Post < ActiveRecord::Base
+class Post < ActiveRecord::Base\
 
 	acts_as_votable
 
@@ -17,5 +17,5 @@ class Post < ActiveRecord::Base
   has_many :comments
 
   validates :content, presence: true
-  validates :title, presence: true
+  validates :title, presence: true 
 end

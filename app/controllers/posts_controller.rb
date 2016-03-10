@@ -39,11 +39,12 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = current_admin.posts.build(post_params)
-
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
+        @post.workshop_id = current_admin.workshop_id
+
       else
         format.html { render :new }
         format.json { render json: @post.errors, status: :unprocessable_entity }

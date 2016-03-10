@@ -81,7 +81,7 @@
                         Profile
                   %hr
                   %li
-                    =link_to destroy_user_session_path, method: :delete do
+                    %a{href: destroy_user_session_path, method: :delete}
                       %span.fa.fa-sign-out
                       Sign Out
                 
@@ -122,6 +122,43 @@
                     =link_to destroy_admin_session_path, method: :delete do
                       %span.fa.fa-sign-out
                       Sign Out
+
+                - if (admin_signed_in?) && (user_signed_in?)
+                  %li
+                    %a{href: workshop_path(current_admin.workshop)}
+                      %span.fa.fa-users
+                      My Workshop
+                    %br
+                  %li
+                    %a{href: posts_path}
+                      %span.fa.fa-files-o
+                      My Posts
+                    %br
+                  %li
+                    %a{href: new_post_path}
+                      %span.fa.fa-pencil
+                      New Post
+                    %br
+                  %li
+                    %a{href: new_workshop_path}
+                      %span.fa.fa-university
+                      New Workshop
+                    %br
+                  %li
+                    =link_to users_path do
+                      %span.fa.fa-users
+                      My Mentees
+                    %br
+                  %li
+                    %a{href: admin_path(current_admin)}
+                      %span.fa.fa-user
+                        Profile
+                      %br
+                  %hr
+                  %li
+                    =link_to destroy_admin_session_path, method: :delete do
+                      %span.fa.fa-sign-out
+                        Sign Out
                   
             .navbar-brand
               = link_to root_path do 

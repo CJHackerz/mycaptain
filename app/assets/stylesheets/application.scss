@@ -49,7 +49,7 @@ a{
 
 		li a{
 			text-decoration: none;
-			color: grey;
+
 		}
 	}
 	.navbar-brand{
@@ -180,7 +180,6 @@ body{
 	font-family: Lora;
 	&:hover{
 		text-decoration: none;
-		color: black;
 	}
 }
 
@@ -277,6 +276,23 @@ img.upar{
 
 .people img{
 	max-height: 190px;
+}
+
+.invisible{
+	display: none;
+}
+
+.navbar-nav li{
+	transition: background-color 0.3s;
+	&:hover{
+		background-color: #ffb264;
+		a span{
+			color: white;
+		}
+	}
+
+	
+
 }
 
 
