@@ -8,7 +8,11 @@ class UsersController < ApplicationController
 	end
 
 	def index
-		@users = User.all
+		if admin_signed_in?
+			@users = User.where(workshop_id: current_admin.workshop_id)
+		else
+			@users = User.where(workshop_id: current_admin.workshop_id)
+		end
 	end
 
 	

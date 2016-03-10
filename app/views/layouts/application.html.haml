@@ -110,7 +110,7 @@
                   %li
                     =link_to users_path do
                       %span.fa.fa-users
-                      Mentees
+                      My Mentees
                     %br
                   %li
                     %a{href: admin_path(current_admin)}
@@ -192,10 +192,15 @@
                       %i.fa.fa-university
                       = current_admin.workshop.title
                 %li
+                  %a{href: forum_threads_path}
+                    %span
+                      %i.fa.fa-comments-o
+                      Forum
+                %li
                   %a{href: users_path}
                     %span
                       %i.fa.fa-users
-                      Mentees
+                      My Mentees
                 %li
                   =link_to destroy_admin_session_path, method: :delete do
                     %span.fa.fa-sign-out

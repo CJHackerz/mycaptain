@@ -5,7 +5,12 @@ class ForumThreadsController < ApplicationController
   # GET /forum_threads.json
   def index
     authenticate_either!
-    @forum_threads = ForumThread.all
+
+    if user_signed_in?
+      @forum_threads = ForumThread.where(workshop_id: current_user.workshop_id)
+    else
+      @forum_threads = ForumThread.where(workshop_id: current_admin.workshop_id)
+    end
   end
 
   # GET /forum_threads/1
