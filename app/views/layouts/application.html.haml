@@ -81,9 +81,9 @@
                         Profile
                   %hr
                   %li
-                    %a{href: destroy_user_session_path, method: :delete}
+                    =link_to destroy_admin_session_path, method: :delete do
                       %span.fa.fa-sign-out
-                      Sign Out
+                        Sign Out
                 
 
                 - if (admin_signed_in?) && !(user_signed_in?)
