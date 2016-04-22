@@ -1,0 +1,111 @@
+//=======================================================
+:javascript
+  $(function(){
+    $('.navbar-custom').hide();
+    $('body').css({'background-color':'white'});
+    $('.footer').hide();
+  });
+//=========================================================
+.container
+  .navbar.navbar-top.navbar-index
+    .navbar-brand.index-brand
+      =image_tag 'logo1.png'
+    %ul.nav.navbar-nav.navbar-right.index-nav
+      %li=link_to 'The Climber','http://theclimber.in'
+      %li=link_to 'About MyCaptain','http://theclimber.in/mycaptain/'
+      %li=link_to 'Captain Login', new_admin_session_path
+
+.container
+  .banner
+    .row
+      .col-md-4
+        %h2.main-text Sign in to your workshop portal and access all your latest content
+        %a.btn.btn-primary.btn-normal{href: new_user_session_path} Sign in
+      .col-md-8
+        =image_tag 'illust.png',class:"banner-img"
+%br
+%br 
+%br
+.container1
+  .back1
+    .row
+      .container
+        .col-md-6
+          .thumbnail
+            =image_tag 'a1.jpg'
+            .caption
+              %h3 Creative Writing
+              %p.phoneview.text
+                Bring out the Writer in you by participating in our Creative Writing Workshops and get your creative juices flowing!
+        .col-md-6
+          %p.text.webview
+            Bring out the Writer in you by participating in our Creative Writing Workshops and get your creative juices flowing!
+          
+  .back2
+    .row
+      .container
+        .col-md-6
+          %p.text.webview
+            Always wanted to be your own boss? Get trained to set up your own business and know the ins-and-out of the trade from the best.
+          
+        .col-md-6
+          .thumbnail
+            =image_tag 'a2.jpg'
+            .caption
+              %h3 Entrepreneurship
+              %p.text.phoneview
+                Always wanted to be your own boss? Get trained to set up your own business and know the ins-and-out of the trade from the best.
+  .back1
+    .row
+      .container
+        .col-md-6
+          .thumbnail
+            =image_tag 'aA.jpg'
+            .caption
+              %h3 Astronomy
+              %p.text.phoneview
+                If the stars amaze you, and you want to get a taste of an astronomer's life, join our Mentorship Program where you meet fellow star gazers who wish to follow a similar path.
+        .col-md-6
+          %p.text.webview
+            If the stars amaze you, and you want to get a taste of an astronomer's life, join our Mentorship Program where you meet fellow star gazers who wish to follow a similar path.
+          
+
+          
+  .back2
+    .row
+      .container
+        .col-md-6
+          %p.text.webview
+            Does the Human Brain interest you? Know more about it's working and the thinking in less than a month by joining our Mentorship program.
+
+        .col-md-6
+          .thumbnail
+            =image_tag 'a3.jpg'
+            .caption
+              %h3 Psychology
+              %p.text.phoneview
+                Does the Human Brain interest you? Know more about it's working and the thinking in less than a month by joining our Mentorship program.
+
+.back1.f
+  .row
+    .container
+      .col-md-4
+        %p
+          &copy;The Climber 2016
+      .col-md-4
+        =image_tag 'climber.png',class: "center"
+
+      .col-md-4
+        .fright
+          %ul.icons
+            %li
+              %a.fa.fa-twitter{href: "http://twitter.com/theclimber_ind"}
+            %li
+              %a.fa.fa-facebook{:href => "http://facebook.com/theclimberorg"}
+            %li
+              %a.fa.fa-instagram{:href => "http://instagram.com/theclimber_official"}
+
+          
+          
+  
+        

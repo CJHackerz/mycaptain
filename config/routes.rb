@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'welcome/index'
+
   resources :forum_threads
   resources :contributions
   get 'comments/create'
@@ -48,6 +50,6 @@ devise_for :users
     root 'posts#new', as: "authenticated_admin_root"
   end
 
-  root 'statics#index'
+  root 'welcome#index'
   
 end
