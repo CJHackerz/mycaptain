@@ -1,7 +1,7 @@
 !!!
 %html{lang: "en"}
   %head
-    
+
     /========================================== Used for bootstrap ======================================================
     %meta{:charset => "utf-8"}
     %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}
@@ -9,17 +9,17 @@
     %link{:crossorigin => "anonymous", :href => "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css", :integrity => "sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7", :rel => "stylesheet"}
 
     %meta{:content => "#008080", :name => "theme-color"}/
-    
+
     /====================================================================================================================
-    
+
     %title MyCaptain: Workshop Portal
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
     = favicon_link_tag 'logo.png'
 
-    
-  
+
+
 
 
   %body
@@ -47,7 +47,7 @@
                       %span.fa.fa-sign-in
                       Sign In
                     %br
-                  
+
                   %li
                     %a{href: new_admin_session_path}
                       %span.fa.fa-mortar-board
@@ -58,7 +58,7 @@
                   %li
                     %a{href: posts_path}
                       %span.fa.fa-files-o
-                      Posts
+                      Sessions
                     %br
                   %li
                     %a{href: forum_threads_path}
@@ -84,7 +84,7 @@
                     =link_to destroy_admin_session_path, method: :delete do
                       %span.fa.fa-sign-out
                         Sign Out
-                
+
 
                 - if (admin_signed_in?) && !(user_signed_in?)
                   %li
@@ -95,12 +95,12 @@
                   %li
                     %a{href: posts_path}
                       %span.fa.fa-files-o
-                      My Posts
+                      My Sessions
                     %br
                   %li
                     %a{href: new_post_path}
                       %span.fa.fa-pencil
-                      New Post
+                      New Session
                     %br
                   %li
                     %a{href: new_workshop_path}
@@ -132,12 +132,12 @@
                   %li
                     %a{href: posts_path}
                       %span.fa.fa-files-o
-                      My Posts
+                      My Sessions
                     %br
                   %li
                     %a{href: new_post_path}
                       %span.fa.fa-pencil
-                      New Post
+                      New Session
                     %br
                   %li
                     %a{href: new_workshop_path}
@@ -159,11 +159,11 @@
                     =link_to destroy_admin_session_path, method: :delete do
                       %span.fa.fa-sign-out
                         Sign Out
-                  
+
             .navbar-brand
-              = link_to root_path do 
+              = link_to root_path do
                 = image_tag "logo1.png"
-          
+
 
           - if !(user_signed_in?) && !(admin_signed_in?)
             .collapse.navbar-collapse
@@ -183,8 +183,8 @@
                     %span
                       %i.fa.fa-sign-in
                       Sign In
-                
-          
+
+
 
           -elsif user_signed_in? && !(admin_signed_in?)
             .collapse.navbar-collapse
@@ -213,7 +213,7 @@
                     %span
                       =image_tag current_user.avatar.url , class: "img upar"
                       Profile
-          
+
 
           -elsif admin_signed_in? && !(user_signed_in?)
             .collapse.navbar-collapse
@@ -222,7 +222,7 @@
                   %a{href: new_post_path}
                     %span
                       %i.fa.fa-pencil
-                      New Post
+                      New Session
                 %li
                   %a{href: workshop_path(current_admin.workshop)}
                     %span
@@ -245,9 +245,9 @@
                 %li
                   %a{href: admin_path(current_admin)}
                     %span
-                      =image_tag current_admin.avatar.url,class: "img upar" 
+                      =image_tag current_admin.avatar.url,class: "img upar"
                       Profile
-              
+
         / /.navbar-collapse
       -if user_signed_in? or admin_signed_in?
         %br
