@@ -68,4 +68,5 @@ gem 'materialize-sass'
 gem 'acts_as_votable'
 gem 'aws-sdk-rails'
 gem 'aws-sdk', '<2.0'
+gem 'activeadmin', github: 'activeadmin'
 
