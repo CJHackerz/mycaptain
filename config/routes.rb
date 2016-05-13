@@ -49,7 +49,7 @@ devise_for :users
   end
 
   authenticated :admin do 
-    root 'posts#new', as: "authenticated_admin_root"
+    root 'posts#index', as: "authenticated_admin_root"
   end
 
   root 'welcome#index'
