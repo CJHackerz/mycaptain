@@ -6,17 +6,18 @@ class WorkshopsController < ApplicationController
   # GET /workshops.json
   def index
     @workshops = Workshop.all
+
+  end
+
+  # GET /workshops/1
+  # GET /workshops/1.json
+  def show
     if user_signed_in?
       @posts = Post.where(workshop_id: current_user.workshop_id)
       # @posts = Post.where(workshop_id: current_user.workshop_id)
     elsif admin_signed_in?
       @posts = Post.where(workshop_id: current_admin.workshop_id)
     end
-  end
-
-  # GET /workshops/1
-  # GET /workshops/1.json
-  def show
   end
 
   # GET /workshops/new
