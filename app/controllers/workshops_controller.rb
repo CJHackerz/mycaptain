@@ -6,7 +6,11 @@ class WorkshopsController < ApplicationController
   # GET /workshops.json
   def index
     @workshops = Workshop.all
-    
+    if user_signed_in?
+      @posts = Post.where(workshop_id: current_user.workshop_id)
+      # @posts = Post.where(workshop_id: current_user.workshop_id)
+    elsif admin_signed_in?
+      @posts = Post.where(workshop_id: current_admin.workshop_id)
   end
 
   # GET /workshops/1
@@ -63,7 +67,7 @@ class WorkshopsController < ApplicationController
     end
   end
 
-  
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

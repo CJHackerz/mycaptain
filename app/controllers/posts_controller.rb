@@ -19,7 +19,7 @@ class PostsController < ApplicationController
     if !(admin_signed_in?)
       authenticate_user!
     end
-    
+
     @comments = Comment.where(post_id: @post)
   end
 
@@ -80,10 +80,10 @@ class PostsController < ApplicationController
   def upvote
 
     respond_to do |format|
-      
+
       format.html{redirect_to :back}
       format.js{render layout: false}
-      
+
       @post.upvote_by current_user if user_signed_in?
       @post.upvote_by current_admin if admin_signed_in?
     end
