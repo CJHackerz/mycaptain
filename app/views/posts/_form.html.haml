@@ -3,8 +3,7 @@
 		= f.error_notification
 
 		.form-inputs
-			.invisible
-				= f.association :workshop, class: "browser-default", selected: current_admin.workshop.title
+			= f.association :workshop, class: "browser-default", selected: current_admin.workshop.title
 			= f.input :cover
 			= f.input :title,label: false,placeholder: "Title"
 			= f.input :content,label: false,placeholder: "Content"
