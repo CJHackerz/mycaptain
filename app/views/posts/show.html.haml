@@ -33,8 +33,8 @@
       
     
     -if admin_signed_in? and current_admin.id == @post.admin_id
-        =link_to destroy_post_path(@post),method: :delete,class: "btn btn-danger" do
-          %i.fa.fa-minus
+      =link_to destroy_post_path(@post),method: :delete,class: "btn btn-danger" do
+        %i.fa.fa-minus
 
     #comments
       %h3.caption#comments-count
