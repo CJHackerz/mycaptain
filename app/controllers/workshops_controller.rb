@@ -11,6 +11,7 @@ class WorkshopsController < ApplicationController
       # @posts = Post.where(workshop_id: current_user.workshop_id)
     elsif admin_signed_in?
       @posts = Post.where(workshop_id: current_admin.workshop_id)
+    end
   end
 
   # GET /workshops/1
