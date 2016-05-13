@@ -13,6 +13,12 @@ class PostsController < ApplicationController
       redirect_to new_user_session_path
     end
   end
+
+  def myposts
+    if admin_signed_in?
+      @posts = Post.where(admin_id: current_admin.id)
+    end
+  end
   # GET /posts/1
   # GET /posts/1.json
   def show

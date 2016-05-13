@@ -1,0 +1,25 @@
+
+.container
+  .row
+    .col-md-10.col-md-offset-1
+      -@posts.each do |post|
+        .col-md-4
+          .thumbnail.pasty
+            =image_tag(post.cover.url)
+            .caption
+              %h3=link_to post.try(:title), post_path(post),class: "arvo"
+              %p
+                %em by
+                =post.admin.name
+              %hr
+              %p=post.content.truncate_words(15)
+              .btn-group.down
+                =link_to like_post_path(post),method: :get,class: "btn btn-success" do
+                  %i.fa.fa-thumbs-up
+                  = post.get_upvotes.size
+                =link_to admin_path(post.admin),class: "btn btn-default" do
+                  %i.fa.fa-user 
+                  Mentor
+                =link_to post,class: "btn btn-primary" do
+                  %i.fa.fa-comments 
+                  =post.comments.count
