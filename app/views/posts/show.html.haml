@@ -11,16 +11,11 @@
 		%hr
 
 		-if @post.stuffs.size > 0
-			%h3.caption Images
-			%hr
 			-@post.stuffs.each do |stuff|
 				.thumbnail
 					=image_tag stuff.image.url,class: "post_image img-responsive"
 					%p.caption=stuff.tag
 		-if @post.embedurls.size > 0
-			%hr
-			%h3.caption Videos
-			%hr
 			-@post.embedurls.each do |aurl|
 				.thumbnail.embed-responsive.embed-responsive-16by9
 					%iframe{:allowfullscreen => true, :frameborder => "0", :height => "315", :src => "https://www.youtube.com/embed/#{aurl.url.split("=").last}"}
