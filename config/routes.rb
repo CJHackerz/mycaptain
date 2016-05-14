@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+   authenticated :user do 
+    root 'posts#index', as: "authenticated_user_root"
+  end
+
+  authenticated :admin do 
+    root 'posts#index', as: "authenticated_admin_root"
+  end
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   get 'welcome/index'
@@ -44,13 +51,7 @@ devise_for :users
 
   resources :contributions
 
-  authenticated :user do 
-    root 'posts#index', as: "authenticated_user_root"
-  end
-
-  authenticated :admin do 
-    root 'posts#index', as: "authenticated_admin_root"
-  end
+ 
 
   root 'welcome#index'
   
