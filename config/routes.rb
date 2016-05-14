@@ -6,8 +6,7 @@ Rails.application.routes.draw do
   authenticated :admin do 
     root 'posts#index', as: "authenticated_admin_root"
   end
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
+  
   get 'welcome/index'
 
   resources :forum_threads
@@ -48,6 +47,8 @@ devise_for :users
   
    
   resources :users
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
 
   resources :contributions
 
