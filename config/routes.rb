@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+
+  
    authenticated :user do 
     root 'posts#index', as: "authenticated_user_root"
   end
@@ -47,8 +52,7 @@ devise_for :users
   
    
   resources :users
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
+  
 
   resources :contributions
 
